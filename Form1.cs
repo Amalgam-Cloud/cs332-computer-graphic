@@ -13,7 +13,7 @@ namespace cs332ComputerGraphic
     public partial class Form1 : Form
     {
 
-        Bitmap cur_img;
+        public Bitmap cur_img;
         string img_path;
         public Form1()
         {
@@ -24,6 +24,8 @@ namespace cs332ComputerGraphic
             trackBar2.Maximum = 100;
             trackBar3.Minimum = 0;
             trackBar3.Maximum = 100;
+
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -136,6 +138,16 @@ namespace cs332ComputerGraphic
             }
             pictureBox1.Image = this.cur_img;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+
+
+        //.......... RGB CONVERT .......... //
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(this.cur_img); 
+            form2.Show();
         }
     }
 }

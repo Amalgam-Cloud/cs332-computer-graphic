@@ -73,6 +73,7 @@ namespace cs332ComputerGraphic
             this.button2.TabIndex = 2;
             this.button2.Text = "RGB -> R-G-B";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -183,7 +184,7 @@ namespace cs332ComputerGraphic
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
