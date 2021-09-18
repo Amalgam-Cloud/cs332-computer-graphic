@@ -28,24 +28,9 @@ namespace cs332ComputerGraphic
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image == null)
-            {
-                OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-                if (open.ShowDialog() == DialogResult.OK)
-                {
-                    this.img_path = open.FileName;
-                    this.cur_img = new Bitmap(this.img_path);
-                    open.Dispose();
-                    PictureHSVChange();
-                }
-            }
-            else 
-            {
-                PictureHSVChange();
-            }
+            PictureHSVTransform();
         }
-        public static void ColorToHSV(Color color, out double hue, out double saturation, out double value)
+        public static void RGBtoHSV(Color color, out double hue, out double saturation, out double value)
         {
             int max = Math.Max(color.R, Math.Max(color.G, color.B));
             int min = Math.Min(color.R, Math.Min(color.G, color.B));
@@ -54,12 +39,12 @@ namespace cs332ComputerGraphic
             saturation = (max == 0) ? 0 : 1.0 - (1.0 * min / max);
             value = max / 255.0;
         }
-        public static Color ColorFromHSV(double hue, double saturation, double value)
+        public static Color HSVtoRGB(double hue, double saturation, double value)
         {
             int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
             double f = hue / 60 - Math.Floor(hue / 60);
 
-            value = value * 255;
+            value *= 255;
             int v = Convert.ToInt32(value);
             int p = Convert.ToInt32(value * (1 - saturation));
             int q = Convert.ToInt32(value * (1 - f * saturation));
@@ -110,12 +95,10 @@ namespace cs332ComputerGraphic
             else
                 return Color.FromArgb(255, v, p, q);
         }
-        public void PictureHSVChange()
+        public void PictureHSVTransform()
         {
             int x, y;
-            double h;
-            double s;
-            double v;
+            double h, s, v;
             double c_h = trackBar1.Value;
             double c_s = (double)trackBar2.Value / 100.0;
             double c_v = (double)trackBar3.Value / 100.0;
@@ -124,9 +107,9 @@ namespace cs332ComputerGraphic
             {
                 for (y = 0; y < new_img.Height; y++)
                 {
-                    Color pixelColor = new_img.GetPixel(x, y);
-                    ColorToHSV(pixelColor, out h, out s, out v);
-                    Color newColor = ColorFromHSV(h + c_h, s + c_s, v + c_v);
+                    Color pColor = new_img.GetPixel(x, y);
+                    RGBtoHSV(pColor, out h, out s, out v);
+                    Color newColor = HSVtoRGB(h + c_h, s + c_s, v + c_v);
                     new_img.SetPixel(x, y, newColor);
                 }
             }
@@ -136,7 +119,23 @@ namespace cs332ComputerGraphic
         private void button4_Click(object sender, EventArgs e)
         {
             Bitmap p = new Bitmap(pictureBox1.Image);
-            p.Save(this.img_path.Substring(0, this.img_path.Length - 4)+"_edit.jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
+            p.Save(this.img_path.Substring(0, this.img_path.Length - 4) + "_edit.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image == null)
+            {
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    this.img_path = open.FileName;
+                    this.cur_img = new Bitmap(this.img_path);
+                }
+            }
+            pictureBox1.Image = this.cur_img;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }
