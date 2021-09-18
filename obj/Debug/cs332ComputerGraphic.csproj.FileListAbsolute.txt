@@ -28,3 +28,14 @@ C:\Users\georgrigzzz\source\repos\cs332-computer-graphic\obj\Debug\cs332Computer
 C:\Users\georgrigzzz\source\repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.exe
 C:\Users\georgrigzzz\source\repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.pdb
 C:\Users\georgrigzzz\source\repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.Form2.resources
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\bin\Debug\cs332ComputerGraphic.exe.config
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\bin\Debug\cs332ComputerGraphic.exe
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\bin\Debug\cs332ComputerGraphic.pdb
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.csprojAssemblyReference.cache
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.Form1.resources
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.Form2.resources
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.Properties.Resources.resources
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.csproj.GenerateResource.cache
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.csproj.CoreCompileInputs.cache
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.exe
+C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.pdb

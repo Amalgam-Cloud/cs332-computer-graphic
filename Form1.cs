@@ -30,7 +30,8 @@ namespace cs332ComputerGraphic
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PictureHSVTransform();
+            if(this.cur_img != null)
+                PictureHSVTransform();
         }
         public static void RGBtoHSV(Color color, out double hue, out double saturation, out double value)
         {
