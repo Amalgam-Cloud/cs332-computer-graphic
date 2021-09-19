@@ -150,5 +150,11 @@ namespace cs332ComputerGraphic
             Form2 form2 = new Form2(this.cur_img); 
             form2.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3(this.cur_img);
+            form3.Show();
+        }
     }
 }

@@ -8,3 +8,14 @@ C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\obj\Rele
 C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.csproj.CoreCompileInputs.cache
 C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.exe
 C:\Users\jopap\source\repos\cs332ComputerGraphic\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.pdb
+C:\Users\vanya\source\repos\cs332-computer-graphic\bin\Release\cs332ComputerGraphic.exe.config
+C:\Users\vanya\source\repos\cs332-computer-graphic\bin\Release\cs332ComputerGraphic.exe
+C:\Users\vanya\source\repos\cs332-computer-graphic\bin\Release\cs332ComputerGraphic.pdb
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.Form1.resources
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.Form2.resources
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.Form3.resources
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.Properties.Resources.resources
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.csproj.GenerateResource.cache
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.csproj.CoreCompileInputs.cache
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.exe
+C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Release\cs332ComputerGraphic.pdb
