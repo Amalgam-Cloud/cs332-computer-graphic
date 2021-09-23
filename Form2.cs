@@ -31,30 +31,27 @@ namespace cs332ComputerGraphic
             return result;
         }
 
-        public static Bitmap RGBHist(Bitmap res)
+        public static Bitmap[] RGBHist(Bitmap res)
         {
-            int Width = 256, Height = res.Height;
+            int Width = 512, Height = 600;
 
-            Bitmap Bars = new Bitmap(Width,Height);
+            Bitmap[] Bars = new Bitmap[] { new Bitmap(Width, Height), new Bitmap(Width, Height), new Bitmap(Width, Height) };
 
             int[] R = new int[256];
             int[] G = new int[256];
             int[] B = new int[256];
 
-            int i, j;
             Color color;
-            for (i = 0; i < res.Width; i++)
-                for (j = 0; j < res.Height-1; ++j)
+            for (int i = 0; i < res.Width; i++)
+                for (int j = 0; j < res.Height; ++j)
                 {
                     color = res.GetPixel(i, j);
                     R[color.R]++;
                     G[color.G]++;
                     B[color.B]++;
                 }
-
             int max = 0;
-
-            for (i = 0; i < 256; ++i)
+            for (int i = 0; i < 256; ++i)
             {
                 if (R[i] > max)
                     max = R[i];
@@ -63,25 +60,25 @@ namespace cs332ComputerGraphic
                 if (B[i] > max)
                     max = B[i];
             }
-
+           
             double point = (double)max / Height;
 
-            for (i = 0; i < Width - 3; ++i)
+            for (int i = 0; i < Width - 3; ++i)
             {
-                for (j = Height - 1; j > Height - R[i / 3] / point; --j)
+                for (int j = Height - 1; j > Height - R[i/3]/point ; j--)
                 {
-                    Bars.SetPixel(i, j, Color.Red);
+                    Bars[0].SetPixel(i, j, Color.Red);
                 }
                 ++i;
-                for (j = Height - 1; j > Height - G[i / 3] / point; --j)
+                for (int j = Height - 1; j > Height - G[i/3]/point; j--)
                 {
-                    Bars.SetPixel(i, j, Color.Green);
+                    Bars[1].SetPixel(i, j, Color.Green);
                 }
                 ++i;
-                for (j = Height - 1; j > Height - B[i / 3] / point; --j)
+                for (int j = Height - 1; j > Height - B[i/3]/point; j--)
                 {
-                    Bars.SetPixel(i, j, Color.Blue);
-                }
+                    Bars[2].SetPixel(i, j, Color.Blue); ;
+                }  
             }
             return Bars;
         } 
@@ -97,14 +94,15 @@ namespace cs332ComputerGraphic
             GREENpictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             BLUEpictureBox.Image = RGB[1];
             BLUEpictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            Bitmap Hist = RGBHist(RGB[0]);
-            pictureBox1.Image = Hist;
+
+            Bitmap[] Hist = RGBHist(res);
+            pictureBox1.Image = Hist[0];
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            Hist = RGBHist(RGB[1]);
-            pictureBox2.Image = Hist;
+            
+            pictureBox2.Image = Hist[1];
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            Hist = RGBHist(RGB[2]);
-            pictureBox3.Image = Hist;
+            
+            pictureBox3.Image = Hist[2];
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
