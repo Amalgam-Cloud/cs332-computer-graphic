@@ -63,3 +63,4 @@ C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphi
 C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.csproj.CoreCompileInputs.cache
 C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.exe
 C:\Users\vanya\source\repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.pdb
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\obj\Debug\cs332ComputerGraphic.Form3.resources
