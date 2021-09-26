@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs332ComputerGraphic", "cs332ComputerGraphic.csproj", "{508C8730-9826-4EA7-8EF3-081ABBACDCB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фыыштпьуте№2", "..\Фыыштпьуте№2\Фыыштпьуте№2.csproj", "{4285BCDB-F872-4DD3-9B77-B56D87D1E1C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{508C8730-9826-4EA7-8EF3-081ABBACDCB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508C8730-9826-4EA7-8EF3-081ABBACDCB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508C8730-9826-4EA7-8EF3-081ABBACDCB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508C8730-9826-4EA7-8EF3-081ABBACDCB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4285BCDB-F872-4DD3-9B77-B56D87D1E1C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4285BCDB-F872-4DD3-9B77-B56D87D1E1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4285BCDB-F872-4DD3-9B77-B56D87D1E1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4285BCDB-F872-4DD3-9B77-B56D87D1E1C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D58F3ED-FE49-4955-8D3F-F7A92BEC4E8B}
+	EndGlobalSection
+EndGlobal
