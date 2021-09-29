@@ -29,47 +29,47 @@ namespace Assignment2
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Task1 = new System.Windows.Forms.Button();
+            this.Task2 = new System.Windows.Forms.Button();
+            this.Task3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // Task1
             // 
-            this.button1.Location = new System.Drawing.Point(365, 106);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Task1.Location = new System.Drawing.Point(365, 106);
+            this.Task1.Name = "Task1";
+            this.Task1.Size = new System.Drawing.Size(75, 23);
+            this.Task1.TabIndex = 0;
+            this.Task1.Text = "Task 1";
+            this.Task1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Task2
             // 
-            this.button2.Location = new System.Drawing.Point(365, 135);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Task2.Location = new System.Drawing.Point(365, 135);
+            this.Task2.Name = "Task2";
+            this.Task2.Size = new System.Drawing.Size(75, 23);
+            this.Task2.TabIndex = 1;
+            this.Task2.Text = "Task 2";
+            this.Task2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // Task3
             // 
-            this.button3.Location = new System.Drawing.Point(365, 164);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Task3.Location = new System.Drawing.Point(365, 164);
+            this.Task3.Name = "Task3";
+            this.Task3.Size = new System.Drawing.Size(75, 23);
+            this.Task3.TabIndex = 2;
+            this.Task3.Text = "Task 3";
+            this.Task3.UseVisualStyleBackColor = true;
+            this.Task3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Task3);
+            this.Controls.Add(this.Task2);
+            this.Controls.Add(this.Task1);
             this.Name = "Hub";
             this.Text = "Hub";
             this.ResumeLayout(false);
@@ -78,8 +78,8 @@ namespace Assignment2
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Task1;
+        private System.Windows.Forms.Button Task2;
+        private System.Windows.Forms.Button Task3;
     }
 }
