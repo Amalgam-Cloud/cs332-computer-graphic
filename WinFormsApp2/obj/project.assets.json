@@ -8,19 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\georgrigzzz\\.nuget\\packages\\": {}
+    "C:\\Users\\vanya\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\georgrigzzz\\Source\\Repos\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
+      "projectUniqueName": "C:\\Users\\vanya\\Documents\\GitHub\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
       "projectName": "Assignment2",
-      "projectPath": "C:\\Users\\georgrigzzz\\Source\\Repos\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
-      "packagesPath": "C:\\Users\\georgrigzzz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\georgrigzzz\\Source\\Repos\\cs332-computer-graphic\\WinFormsApp2\\obj\\",
+      "projectPath": "C:\\Users\\vanya\\Documents\\GitHub\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
+      "packagesPath": "C:\\Users\\vanya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vanya\\Documents\\GitHub\\cs332-computer-graphic\\WinFormsApp2\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\georgrigzzz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vanya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,7 +36,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -44,7 +47,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -63,7 +65,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

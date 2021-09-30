@@ -11,12 +11,7 @@ namespace Assignment2
     public partial class task1 : Form
     {
         Graphics gr;
-        Bitmap bmp;
-        Point coord;
-        Boolean isDown;
-        Point prev;
         Color color = Color.Black;
-
         void FloodFill(Point p)
         {
             if (!pictureBox1.ClientRectangle.Contains(p))
@@ -58,7 +53,6 @@ namespace Assignment2
                 }
             }
         }
-
         Color GetColor(Point p)
         {
             if (pictureBox1.ClientRectangle.Contains(p))
@@ -67,6 +61,10 @@ namespace Assignment2
                 return Color.Black;
         }
 
+
+        Point coord;
+        Boolean isDown;
+        Point prev;
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isDown = true;
@@ -98,6 +96,10 @@ namespace Assignment2
             {
                 FloodFill(coord);
             }
+            if (radioButton3.Checked)
+            {
+                FloodFill_2(coord);
+            }
             pictureBox1.Invalidate();
         }
 
@@ -108,11 +110,63 @@ namespace Assignment2
             color = c.Color;
         }
 
+        TextureBrush b;
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                b = new TextureBrush(Image.FromFile(open.FileName));
+            }
+        }
+
+        HashSet<Point> filled = new HashSet<Point>();
+        private void FloodFill_2(Point p)
+        {
+            Color currC = GetColor(p);
+            Point leftP = p;
+            Point rightP = p;
+            if (!filled.Contains(p) && pictureBox1.ClientRectangle.Contains(p) && currC != Color.FromArgb(255, 0, 0, 0))
+            {
+                while (currC != Color.FromArgb(255, 0, 0, 0) && pictureBox1.ClientRectangle.Contains(leftP))
+                {
+                    leftP.X -= 1;
+                    currC = GetColor(leftP);
+                }
+                leftP.X += 1;
+                currC = GetColor(p);
+                while (currC != Color.FromArgb(255, 0, 0, 0) && pictureBox1.ClientRectangle.Contains(rightP))
+                {
+                    rightP.X += 1;
+                    currC = GetColor(rightP);
+                }
+                rightP.X -= 1;
+                gr.FillRectangle(b, leftP.X, leftP.Y, Math.Abs(rightP.X - leftP.X) + 1, 1);
+                for (int i = leftP.X; i <= rightP.X; ++i)
+                    filled.Add(new Point(i, leftP.Y));
+                for (int i = leftP.X; i <= rightP.X; ++i)
+                {
+                    Point upP = new Point(i, p.Y + 1);
+                    Color upC = GetColor(upP);
+                    if (!filled.Contains(upP) && upC != Color.FromArgb(255, 0, 0, 0) && pictureBox1.ClientRectangle.Contains(upP))
+                        FloodFill_2(upP);
+                }
+                for (int i = leftP.X; i < rightP.X; ++i)
+                {
+                    Point downP = new Point(i, p.Y - 1);
+                    Color downC = GetColor(downP);
+                    if (!filled.Contains(downP) && downC != Color.FromArgb(255, 0, 0, 0) && pictureBox1.ClientRectangle.Contains(downP))
+                        FloodFill_2(downP);
+                }
+                return;
+            }
+        }
 
         public task1()
         {
             InitializeComponent();
-            bmp = new Bitmap(Width, Height);
+            Bitmap bmp = new Bitmap(Width, Height);
             pictureBox1.Image = bmp;
             gr = Graphics.FromImage(pictureBox1.Image);
         }
