@@ -4,6 +4,9 @@
     <Compile Update="Hub.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="task1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="task3.cs">
       <SubType>Form</SubType>
     </Compile>

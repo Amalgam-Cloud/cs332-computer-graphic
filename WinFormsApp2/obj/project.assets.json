@@ -8,24 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\jopap\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\vanya\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jopap\\Desktop\\adf\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
+      "projectUniqueName": "C:\\Users\\vanya\\Documents\\GitHub\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
       "projectName": "Assignment2",
-      "projectPath": "C:\\Users\\jopap\\Desktop\\adf\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
-      "packagesPath": "C:\\Users\\jopap\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jopap\\Desktop\\adf\\cs332-computer-graphic\\WinFormsApp2\\obj\\",
+      "projectPath": "C:\\Users\\vanya\\Documents\\GitHub\\cs332-computer-graphic\\WinFormsApp2\\Assignment2.csproj",
+      "packagesPath": "C:\\Users\\vanya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vanya\\Documents\\GitHub\\cs332-computer-graphic\\WinFormsApp2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jopap\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\vanya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -37,7 +36,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -49,7 +47,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -68,7 +65,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

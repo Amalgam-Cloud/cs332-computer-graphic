@@ -20,5 +20,11 @@ namespace Assignment2
             task3 task3Form = new task3();
             task3Form.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            task1 task1Form = new task1();
+            task1Form.Show();
+        }
     }
 }
