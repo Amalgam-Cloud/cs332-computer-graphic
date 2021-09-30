@@ -52,6 +52,7 @@ namespace Assignment2
             this.Task2.TabIndex = 1;
             this.Task2.Text = "Task 2";
             this.Task2.UseVisualStyleBackColor = true;
+            this.Task2.Click += new System.EventHandler(this.Task2_Click);
             // 
             // Task3
             // 
