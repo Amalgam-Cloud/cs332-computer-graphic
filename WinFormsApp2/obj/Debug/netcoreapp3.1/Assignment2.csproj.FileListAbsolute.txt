@@ -54,3 +54,5 @@ C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\WinFormsApp2\obj\Debug\
 C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\WinFormsApp2\obj\Debug\netcoreapp3.1\Assignment2.pdb
 C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\WinFormsApp2\obj\Debug\netcoreapp3.1\Assignment2.genruntimeconfig.cache
 C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\WinFormsApp2\obj\Debug\netcoreapp3.1\Assignment2.Form1.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\WinFormsApp2\obj\Debug\netcoreapp3.1\Assignment2.Form1.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\WinFormsApp2\obj\Debug\netcoreapp3.1\Assignment2.task1.resources

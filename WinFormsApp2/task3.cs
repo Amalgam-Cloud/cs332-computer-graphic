@@ -21,12 +21,11 @@ namespace Assignment2
         Point x;
         Point y;
         Point z;
-        private Point p1, p2;
-        List<Point> p1List = new List<Point>();
-        List<Point> p2List = new List<Point>();
+        Color xcl;
+        Color ycl;
+        Color zcl;
         public class PointComp : IComparer<Point>
         {
-            // Compares by Height, Length, and Width.
             public int Compare(Point x, Point y)
             {
                 return x.Y.CompareTo(y.Y);
@@ -139,8 +138,34 @@ namespace Assignment2
                 var old_point = new Point(Cursor.Position.X, MousePosition.Y);
                 var n_point = control.PointToClient(old_point);
                 z = n_point;
-                TriangleMaker(x, y, z, Color.Red,Color.DarkMagenta,Color.Blue);
+                TriangleMaker(x, y, z, xcl,ycl,zcl/*Color.Red,Color.DarkMagenta,Color.Blue*/);
                 count = 0;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog1 = new ColorDialog();
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                xcl = colorDialog1.Color;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog1 = new ColorDialog();
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                ycl = colorDialog1.Color;
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog1 = new ColorDialog();
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                zcl = colorDialog1.Color;
             }
         }
     }
