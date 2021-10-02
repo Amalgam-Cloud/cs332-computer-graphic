@@ -19,13 +19,11 @@ namespace cs332ComputerGraphic
         {
             InitializeComponent();
             trackBar1.Minimum = 0;
-            trackBar1.Maximum = 255;
+            trackBar1.Maximum = 360;
             trackBar2.Minimum = 0;
             trackBar2.Maximum = 100;
             trackBar3.Minimum = 0;
             trackBar3.Maximum = 100;
-
-            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -40,51 +38,17 @@ namespace cs332ComputerGraphic
 
             hue = color.GetHue();
             saturation = (max == 0) ? 0 : 1.0 - (1.0 * min / max);
-            value = max / 255.0;
+            value = (double)max / 255.0;
         }
         public static Color HSVtoRGB(double hue, double saturation, double value)
         {
             int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
             double f = hue / 60 - Math.Floor(hue / 60);
-
             value *= 255;
             int v = Convert.ToInt32(value);
             int p = Convert.ToInt32(value * (1 - saturation));
             int q = Convert.ToInt32(value * (1 - f * saturation));
             int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
-            if (v > 255)
-            {
-                v = 255;
-            }
-            if (v < 0)
-            {
-                v = 0;
-            }
-            if (p > 255)
-            {
-                p = 255;
-            }
-            if (p < 0)
-            {
-                p = 0;
-            }
-            if (q > 255)
-            {
-                q = 255;
-            }
-            if (q < 0)
-            {
-                q = 0;
-            }
-            if (t > 255)
-            {
-                t = 255;
-            }
-            if (t < 0)
-            {
-                t = 0;
-            }
-
             if (hi == 0)
                 return Color.FromArgb(255, v, t, p);
             else if (hi == 1)
@@ -102,7 +66,7 @@ namespace cs332ComputerGraphic
         {
             int x, y;
             double h, s, v;
-            double c_h = trackBar1.Value * 360 / 255;
+            double c_h = trackBar1.Value;
             double c_s = (double)trackBar2.Value / 100.0;
             double c_v = (double)trackBar3.Value / 100.0;
             Bitmap new_img = (Bitmap)this.cur_img.Clone();
@@ -112,7 +76,10 @@ namespace cs332ComputerGraphic
                 {
                     Color pColor = new_img.GetPixel(x, y);
                     RGBtoHSV(pColor, out h, out s, out v);
-                    Color newColor = HSVtoRGB(h + c_h, s + c_s, v + c_v);
+                    var n_h = h + c_h == 360.0 || h + c_h == 0 ? h + c_h : (h + c_h) % 360.0;
+                    var n_s = s + c_s == 1.0 || s + c_s == 0 ? s + c_s : (s + c_s) % 1.0;
+                    var n_v = v + c_v == 1.0 || v + c_v == 0 ? v + c_v : (v + c_v) % 1.0;
+                    Color newColor = HSVtoRGB(n_h,n_s,n_v);
                     new_img.SetPixel(x, y, newColor);
                 }
             }

@@ -1,0 +1,10 @@
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.AssemblyReference.cache
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.Form1.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.Properties.Resources.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.GenerateResource.cache
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.CoreCompileInputs.cache
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.exe.config
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.exe
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.pdb
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.exe
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.pdb
