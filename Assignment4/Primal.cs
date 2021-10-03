@@ -44,8 +44,8 @@ namespace Assignment4
     }
     class Line:Primal
     {
-        Dot pos1 { get; set; }
-        Dot pos2 { get; set; }
+        public Dot pos1 { get; set; }
+        public Dot pos2 { get; set; }
         public static Dot CrossingLines(Line l1, Line l2)
         {
             /*y = Ax + B*/
@@ -82,10 +82,19 @@ namespace Assignment4
             return new Dot(new Point(Convert.ToInt32(x), Convert.ToInt32(y)),false);
 
         }
+        public bool IsUnerlined(Dot d)
+        {
+            return (this.pos2.pos.X - this.pos1.pos.X) * (d.pos.Y - this.pos1.pos.Y) - (this.pos2.pos.Y - this.pos1.pos.Y) * (d.pos.X - this.pos1.pos.X) > 0;
+        }
         public Line(Point p1,Point p2)
         {
             this.pos1 = new Dot(p1);
             this.pos2 = new Dot(p2);
+        }
+        public Line(Dot d1, Dot d2)
+        {
+            this.pos1 = d1;
+            this.pos2 = d2;
         }
         public override void Draw(Graphics g,Pen p)
         {
@@ -94,10 +103,10 @@ namespace Assignment4
     }
     class Poligon : Primal
     {
-        Line upSide { get; set; }
-        Line downSide { get; set; }
-        Line leftSide { get; set; }
-        Line rightSide { get; set; }
+        public Line upSide { get; set; }
+        public Line downSide { get; set; }
+        public Line leftSide { get; set; }
+        public Line rightSide { get; set; }
         public Poligon(Point p1, Point p2)
         {
             List<Point> points = new List<Point>();
@@ -124,6 +133,14 @@ namespace Assignment4
             this.rightSide.Draw(g,p);
             this.downSide.Draw(g,p);
             this.leftSide.Draw(g,p);
+        }
+        public bool IsDotInside(Dot d)
+        {
+            bool p1 = this.upSide.IsUnerlined(d);
+            bool p2 = this.rightSide.IsUnerlined(d);
+            bool p3 = this.downSide.IsUnerlined(d);
+            bool p4 = this.leftSide.IsUnerlined(d);
+            return  p1 && p2 && p3 && p4;
         }
     }
 }

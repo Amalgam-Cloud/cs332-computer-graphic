@@ -41,12 +41,36 @@ namespace Assignment4
                     this.p1 = control.PointToClient(new Point(Cursor.Position.X, MousePosition.Y));
                     if (DotMode)
                     {
-                        primals.Add(new Dot(p1));
+                        Dot d = new Dot(p1);
+                        primals.Add(d);
                         counter++;
                         listBox1.Items.Insert(counter, "Dot " + counter);
                         p1.X = 0;
                         p1.Y = 0;
                         IsAded = true;
+                        for(int i = 0; i<this.primals.Count; ++i)
+                        {
+                            if(this.primals[i] is Poligon && (this.primals[i] as Poligon).IsDotInside(d))
+                            {
+                                primals.Add(new Line((this.primals[i] as Poligon).downSide.pos1, d));
+                                this.primals.Last().Draw(this.graph, this.p);
+                                counter++;
+                                listBox1.Items.Insert(counter, "Inside Line " + counter);
+                                primals.Add(new Line((this.primals[i] as Poligon).leftSide.pos1, d));
+                                this.primals.Last().Draw(this.graph, this.p);
+                                counter++;
+                                listBox1.Items.Insert(counter, "Inside Line " + counter);
+                                primals.Add(new Line((this.primals[i] as Poligon).upSide.pos1, d));
+                                this.primals.Last().Draw(this.graph, this.p);
+                                counter++;
+                                listBox1.Items.Insert(counter, "Inside Line " + counter);
+                                primals.Add(new Line((this.primals[i] as Poligon).rightSide.pos1, d));
+                                this.primals.Last().Draw(this.graph, this.p);
+                                counter++;
+                                listBox1.Items.Insert(counter, "Inside Line " + counter);
+
+                            }
+                        }
                     }
                 }
                 else
