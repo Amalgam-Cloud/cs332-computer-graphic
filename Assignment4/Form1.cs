@@ -214,13 +214,16 @@ namespace Assignment4
             {
                 this.graph.Clear(pictureBox1.BackColor);
                 OffsetLine(curr_primal as Line);
-                Line l = new Line(newPrim_points.First(), newPrim_points.Last());
-                l.Draw(graph, p);
+                (this.curr_primal as Line).pos1 = new Dot(newPrim_points.First());
+                (this.curr_primal as Line).pos2 = new Dot(newPrim_points.Last());
                 newPrim_points.Clear();
+                /*Line l = new Line(newPrim_points.First(), newPrim_points.Last());
+                l.Draw(graph, p);*/
+                
             }
             else if (curr_primal is Poligon)
-            {      
-                Line l1 = (curr_primal as Poligon).upSide;
+            {
+                /*Line l1 = (curr_primal as Poligon).upSide;
                 Line l2 = (curr_primal as Poligon).downSide;
                 Line l3 = (curr_primal as Poligon).leftSide;
                 Line l4 = (curr_primal as Poligon).rightSide;
@@ -232,9 +235,33 @@ namespace Assignment4
                     Line drawLine = new Line(newPrim_points.First(), newPrim_points.Last());
                     drawLine.Draw(graph, p);
                     newPrim_points.Clear();
-                }
+                }*/
+                this.graph.Clear(pictureBox1.BackColor);
+                Line l1 = (curr_primal as Poligon).upSide;
+                OffsetLine(l1 as Line);
+                (l1 as Line).pos1 = new Dot(newPrim_points.First());
+                (l1 as Line).pos2 = new Dot(newPrim_points.Last());
+                newPrim_points.Clear();
+                Line l2 = (curr_primal as Poligon).downSide;
+                OffsetLine(l2 as Line);
+                (l2 as Line).pos1 = new Dot(newPrim_points.First());
+                (l2 as Line).pos2 = new Dot(newPrim_points.Last());
+                newPrim_points.Clear();
+                Line l3 = (curr_primal as Poligon).leftSide;
+                OffsetLine(l3 as Line);
+                (l3 as Line).pos1 = new Dot(newPrim_points.First());
+                (l3 as Line).pos2 = new Dot(newPrim_points.Last());
+                newPrim_points.Clear();
+                Line l4 = (curr_primal as Poligon).rightSide;
+                OffsetLine(l4 as Line);
+                (l4 as Line).pos1 = new Dot(newPrim_points.First());
+                (l4 as Line).pos2 = new Dot(newPrim_points.Last());
+                newPrim_points.Clear();
             }
-
+            foreach(var elem in this.primals)
+            {
+                elem.Draw(this.graph,this.p);
+            }
 
 
         }
