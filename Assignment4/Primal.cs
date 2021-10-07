@@ -96,6 +96,7 @@ namespace Assignment4
             this.pos1 = d1;
             this.pos2 = d2;
         }
+
         public override void Draw(Graphics g,Pen p)
         {
             g.DrawLine(p,pos1.pos,pos2.pos);

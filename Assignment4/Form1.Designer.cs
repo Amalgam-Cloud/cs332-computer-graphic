@@ -42,8 +42,9 @@ namespace Assignment4
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@ namespace Assignment4
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // button1
             // 
@@ -90,7 +92,7 @@ namespace Assignment4
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(668, 38);
+            this.listBox1.Location = new System.Drawing.Point(662, 40);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 303);
             this.listBox1.TabIndex = 4;
@@ -156,39 +158,50 @@ namespace Assignment4
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(93, 346);
+            this.button5.Location = new System.Drawing.Point(93, 375);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(121, 23);
             this.button5.TabIndex = 12;
-            this.button5.Text = "Offset";
+            this.button5.Text = "Apply";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // comboBox1
             // 
-            this.button6.Location = new System.Drawing.Point(93, 372);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Rotation";
-            this.button6.UseVisualStyleBackColor = true;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Offset",
+            "Rotation",
+            "Scaling"});
+            this.comboBox1.Location = new System.Drawing.Point(93, 348);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 15;
             // 
-            // button7
+            // textBox4
             // 
-            this.button7.Location = new System.Drawing.Point(93, 398);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "Scaling";
-            this.button7.UseVisualStyleBackColor = true;
+            this.textBox4.Location = new System.Drawing.Point(44, 427);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(43, 20);
+            this.textBox4.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 434);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "k";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.ClientSize = new System.Drawing.Size(800, 471);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -225,8 +238,9 @@ namespace Assignment4
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label4;
     }
 }
 

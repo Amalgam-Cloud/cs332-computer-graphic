@@ -165,7 +165,7 @@ namespace Assignment4
 
 
 
-        private double[,] matrMult(double[,] m1, double[,] m2)
+        private double[,] MatrMult(double[,] m1, double[,] m2)
         {
             double[,] res = new double[m1.GetLength(0), m2.GetLength(1)];
             for (int i = 0; i < m1.GetLength(0); ++i)
@@ -178,34 +178,83 @@ namespace Assignment4
         }
 
         List<Point> newPrim_points = new List<Point>();
-        private void OffsetLine(Line l)
+        private void CalculateLine(Line l)
         {     
             double[,] point1 = new double[,] { { l.pos1.pos.X, l.pos1.pos.Y, 1.0 } };
             double[,] point2 = new double[,] { { l.pos2.pos.X, l.pos2.pos.Y, 1.0 } };
-            double[,] res1 = matrMult(point1, transMatr);
-            double[,] res2 = matrMult(point2, transMatr);
+            double[,] res1 = MatrMult(point1, transMatr);
+            double[,] res2 = MatrMult(point2, transMatr);
             newPrim_points.Add(new Point(Convert.ToInt32(Math.Round(res1[0, 0])), Convert.ToInt32(Math.Round(res1[0, 1]))));
             newPrim_points.Add(new Point(Convert.ToInt32(Math.Round(res2[0, 0])), Convert.ToInt32(Math.Round(res2[0, 1])))); 
         }
 
-        
+        Point rotatePoint;
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            rotatePoint = new Point((e as MouseEventArgs).X, (e as MouseEventArgs).Y);
+        }
+
         double[,] transMatr;
-        //offset
+
         private void button5_Click(object sender, EventArgs e)
         {
             this.PoligonMode = false;
             this.LineMode = false;
             this.DotMode = false;
 
-            double dX = System.Convert.ToDouble(textBox1.Text);
-            double dY = System.Convert.ToDouble(textBox2.Text);
-            transMatr = new double[,] { { 1.0, 0, 0 }, { 0, 1.0, 0 }, { dX, dY, 1.0 } };
+
+            if (comboBox1.Text == "Offset")
+            {
+
+                double dX = System.Convert.ToDouble(textBox1.Text);
+                double dY = System.Convert.ToDouble(textBox2.Text);
+                transMatr = new double[,] { { 1.0, 0, 0 }, { 0, 1.0, 0 }, { dX, dY, 1.0 } };
+
+            }
+            else if (comboBox1.Text == "Rotation") {
+                textBox1.Text = rotatePoint.X.ToString();
+                textBox2.Text = rotatePoint.Y.ToString();
+
+                double c = System.Convert.ToDouble(textBox1.Text);
+                double d = System.Convert.ToDouble(textBox2.Text);
+                double ang = System.Convert.ToDouble(textBox3.Text) * Math.PI / 180;
+                double cos = Math.Cos(ang);
+                double sin = Math.Sin(ang);
+                transMatr = new double[,] {
+                {cos, sin, 0},
+                {-sin, cos, 0},
+                {cos*(-c)+d*sin+c, (-c)*sin-d*cos+d, 1}
+            };
+            }
+            else if (comboBox1.Text == "Scaling")
+            {
+                double k = System.Convert.ToDouble(textBox4.Text);
+                Point centre;
+                if (curr_primal is Line)
+                {
+                    centre = new Point(
+                        Math.Abs((curr_primal as Line).pos1.pos.X + (curr_primal as Line).pos2.pos.X) / 2,
+                        Math.Abs((curr_primal as Line).pos1.pos.Y + (curr_primal as Line).pos2.pos.Y) / 2);
+                }
+                else if(curr_primal is Poligon)
+                {
+                    centre = new Point(
+                        Math.Abs((curr_primal as Poligon).leftSide.pos1.pos.X + (curr_primal as Poligon).rightSide.pos1.pos.X) / 2,
+                        Math.Abs((curr_primal as Poligon).leftSide.pos2.pos.Y + (curr_primal as Poligon).rightSide.pos2.pos.Y) / 2);
+                }
+                else
+                {
+                    centre = new Point(0, 0);
+                }
+                transMatr = new double[,] { { k, 0, 0 }, { 0, k, 0 }, { (1 - k) * centre.X, (1 - k) * centre.Y, 1 } };
+            }
 
             if (curr_primal is Dot)
             {
+                
                 List<Dot> newPrim = new List<Dot>();
                 double[,] point = new double[,] { { (curr_primal as Dot).pos.X, (curr_primal as Dot).pos.Y, 1.0 } };
-                double[,] res = matrMult(point, transMatr);
+                double[,] res = MatrMult(point, transMatr);
                 newPrim.Add(new Dot(new Point(Convert.ToInt32(Math.Round(res[0, 0])), Convert.ToInt32(Math.Round(res[0, 1]))), true));
                 this.graph.Clear(pictureBox1.BackColor);
                 newPrim.First().Draw(graph, p);
@@ -213,7 +262,7 @@ namespace Assignment4
             else if (curr_primal is Line)
             {
                 this.graph.Clear(pictureBox1.BackColor);
-                OffsetLine(curr_primal as Line);
+                CalculateLine(curr_primal as Line);
                 (this.curr_primal as Line).pos1 = new Dot(newPrim_points.First());
                 (this.curr_primal as Line).pos2 = new Dot(newPrim_points.Last());
                 newPrim_points.Clear();
@@ -238,22 +287,22 @@ namespace Assignment4
                 }*/
                 this.graph.Clear(pictureBox1.BackColor);
                 Line l1 = (curr_primal as Poligon).upSide;
-                OffsetLine(l1 as Line);
+                CalculateLine(l1 as Line);
                 (l1 as Line).pos1 = new Dot(newPrim_points.First());
                 (l1 as Line).pos2 = new Dot(newPrim_points.Last());
                 newPrim_points.Clear();
                 Line l2 = (curr_primal as Poligon).downSide;
-                OffsetLine(l2 as Line);
+                CalculateLine(l2 as Line);
                 (l2 as Line).pos1 = new Dot(newPrim_points.First());
                 (l2 as Line).pos2 = new Dot(newPrim_points.Last());
                 newPrim_points.Clear();
                 Line l3 = (curr_primal as Poligon).leftSide;
-                OffsetLine(l3 as Line);
+                CalculateLine(l3 as Line);
                 (l3 as Line).pos1 = new Dot(newPrim_points.First());
                 (l3 as Line).pos2 = new Dot(newPrim_points.Last());
                 newPrim_points.Clear();
                 Line l4 = (curr_primal as Poligon).rightSide;
-                OffsetLine(l4 as Line);
+                CalculateLine(l4 as Line);
                 (l4 as Line).pos1 = new Dot(newPrim_points.First());
                 (l4 as Line).pos2 = new Dot(newPrim_points.Last());
                 newPrim_points.Clear();
@@ -262,8 +311,8 @@ namespace Assignment4
             {
                 elem.Draw(this.graph,this.p);
             }
-
-
         }
+
+
     }
 }
