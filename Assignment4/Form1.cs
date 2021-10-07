@@ -30,6 +30,7 @@ namespace Assignment4
             this.p.Width = 2;
         }
 
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (LineMode || PoligonMode || DotMode)
@@ -68,7 +69,6 @@ namespace Assignment4
                                 this.primals.Last().Draw(this.graph, this.p);
                                 counter++;
                                 listBox1.Items.Insert(counter, "Inside Line " + counter);
-
                             }
                         }
                     }
@@ -159,6 +159,84 @@ namespace Assignment4
             this.PoligonMode = true;
             this.LineMode = false;
             this.DotMode = false;
+        }
+
+
+
+
+
+        private double[,] matrMult(double[,] m1, double[,] m2)
+        {
+            double[,] res = new double[m1.GetLength(0), m2.GetLength(1)];
+            for (int i = 0; i < m1.GetLength(0); ++i)
+                for (int j = 0; j < m2.GetLength(1); ++j)
+                    for (int k = 0; k < m2.GetLength(0); k++)
+                    {
+                        res[i, j] += m1[i, k] * m2[k, j];
+                    }
+            return res;
+        }
+
+        List<Point> newPrim_points = new List<Point>();
+        private void OffsetLine(Line l)
+        {     
+            double[,] point1 = new double[,] { { l.pos1.pos.X, l.pos1.pos.Y, 1.0 } };
+            double[,] point2 = new double[,] { { l.pos2.pos.X, l.pos2.pos.Y, 1.0 } };
+            double[,] res1 = matrMult(point1, transMatr);
+            double[,] res2 = matrMult(point2, transMatr);
+            newPrim_points.Add(new Point(Convert.ToInt32(Math.Round(res1[0, 0])), Convert.ToInt32(Math.Round(res1[0, 1]))));
+            newPrim_points.Add(new Point(Convert.ToInt32(Math.Round(res2[0, 0])), Convert.ToInt32(Math.Round(res2[0, 1])))); 
+        }
+
+        
+        double[,] transMatr;
+        //offset
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.PoligonMode = false;
+            this.LineMode = false;
+            this.DotMode = false;
+
+            double dX = System.Convert.ToDouble(textBox1.Text);
+            double dY = System.Convert.ToDouble(textBox2.Text);
+            transMatr = new double[,] { { 1.0, 0, 0 }, { 0, 1.0, 0 }, { dX, dY, 1.0 } };
+
+            if (curr_primal is Dot)
+            {
+                List<Dot> newPrim = new List<Dot>();
+                double[,] point = new double[,] { { (curr_primal as Dot).pos.X, (curr_primal as Dot).pos.Y, 1.0 } };
+                double[,] res = matrMult(point, transMatr);
+                newPrim.Add(new Dot(new Point(Convert.ToInt32(Math.Round(res[0, 0])), Convert.ToInt32(Math.Round(res[0, 1]))), true));
+                this.graph.Clear(pictureBox1.BackColor);
+                newPrim.First().Draw(graph, p);
+            }
+            else if (curr_primal is Line)
+            {
+                this.graph.Clear(pictureBox1.BackColor);
+                OffsetLine(curr_primal as Line);
+                Line l = new Line(newPrim_points.First(), newPrim_points.Last());
+                l.Draw(graph, p);
+                newPrim_points.Clear();
+            }
+            else if (curr_primal is Poligon)
+            {      
+                Line l1 = (curr_primal as Poligon).upSide;
+                Line l2 = (curr_primal as Poligon).downSide;
+                Line l3 = (curr_primal as Poligon).leftSide;
+                Line l4 = (curr_primal as Poligon).rightSide;
+                List<Line> ll = new List<Line>() { l1, l2, l3, l4 };
+                this.graph.Clear(pictureBox1.BackColor);
+                foreach (Line l in ll)
+                {
+                    OffsetLine(l);
+                    Line drawLine = new Line(newPrim_points.First(), newPrim_points.Last());
+                    drawLine.Draw(graph, p);
+                    newPrim_points.Clear();
+                }
+            }
+
+
+
         }
     }
 }
