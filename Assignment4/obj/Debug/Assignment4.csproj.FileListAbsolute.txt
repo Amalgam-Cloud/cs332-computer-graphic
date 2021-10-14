@@ -18,3 +18,13 @@ C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment4\obj\Debug\Ass
 C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.CoreCompileInputs.cache
 C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.exe
 C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.pdb
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.exe.config
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.exe
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.pdb
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csprojAssemblyReference.cache
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.Form1.resources
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.Properties.Resources.resources
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.GenerateResource.cache
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.CoreCompileInputs.cache
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.exe
+C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.pdb

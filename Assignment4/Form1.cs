@@ -161,10 +161,6 @@ namespace Assignment4
             this.DotMode = false;
         }
 
-
-
-
-
         private double[,] MatrMult(double[,] m1, double[,] m2)
         {
             double[,] res = new double[m1.GetLength(0), m2.GetLength(1)];
@@ -211,7 +207,8 @@ namespace Assignment4
                 transMatr = new double[,] { { 1.0, 0, 0 }, { 0, 1.0, 0 }, { dX, dY, 1.0 } };
 
             }
-            else if (comboBox1.Text == "Rotation") {
+            else if (comboBox1.Text == "Rotation")
+            {
                 textBox1.Text = rotatePoint.X.ToString();
                 textBox2.Text = rotatePoint.Y.ToString();
 
@@ -221,10 +218,10 @@ namespace Assignment4
                 double cos = Math.Cos(ang);
                 double sin = Math.Sin(ang);
                 transMatr = new double[,] {
-                {cos, sin, 0},
-                {-sin, cos, 0},
-                {cos*(-c)+d*sin+c, (-c)*sin-d*cos+d, 1}
-            };
+                { cos, sin, 0 },
+                { -sin, cos, 0 },
+                { cos * (-c) + d * sin + c, (-c) * sin - d * cos + d, 1 }
+                };
             }
             else if (comboBox1.Text == "Scaling")
             {
@@ -236,7 +233,7 @@ namespace Assignment4
                         Math.Abs((curr_primal as Line).pos1.pos.X + (curr_primal as Line).pos2.pos.X) / 2,
                         Math.Abs((curr_primal as Line).pos1.pos.Y + (curr_primal as Line).pos2.pos.Y) / 2);
                 }
-                else if(curr_primal is Poligon)
+                else if (curr_primal is Poligon)
                 {
                     centre = new Point(
                         Math.Abs((curr_primal as Poligon).leftSide.pos1.pos.X + (curr_primal as Poligon).rightSide.pos1.pos.X) / 2,
@@ -313,6 +310,38 @@ namespace Assignment4
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            double cx = ((curr_primal as Line).pos1.pos.X + (curr_primal as Line).pos2.pos.X) / 2;
+            double cy = ((curr_primal as Line).pos1.pos.Y + (curr_primal as Line).pos2.pos.Y) / 2;
 
+           
+            double ang1 = Math.PI/2;
+            double cos1 = Math.Cos(ang1);
+            double sin1 = Math.Sin(ang1);
+            transMatr = new double[,] {
+                {cos1, sin1, 0},
+                {-sin1, cos1, 0},
+                {cos1*(-cx)+cy*sin1+cx, (-cx)*sin1-cy*cos1+cx, 1}
+            };
+
+
+            if (curr_primal is Line)
+            {
+                this.graph.Clear(pictureBox1.BackColor);
+                CalculateLine(curr_primal as Line);
+                (this.curr_primal as Line).pos1 = new Dot(newPrim_points.First());
+                (this.curr_primal as Line).pos2 = new Dot(newPrim_points.Last());
+                newPrim_points.Clear();
+                /*Line l = new Line(newPrim_points.First(), newPrim_points.Last());
+                l.Draw(graph, p);*/
+
+            }
+
+            foreach (var elem in this.primals)
+            {
+                elem.Draw(this.graph, this.p);
+            }
+        }
     }
 }
