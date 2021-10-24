@@ -50,14 +50,14 @@ namespace Assignment5
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1000, 660);
+            this.pictureBox1.Size = new System.Drawing.Size(1252, 559);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(1006, 257);
+            this.button1.Location = new System.Drawing.Point(274, 633);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(246, 62);
             this.button1.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace Assignment5
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(1006, 325);
+            this.button2.Location = new System.Drawing.Point(533, 633);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(246, 62);
             this.button2.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace Assignment5
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(1006, 393);
+            this.button3.Location = new System.Drawing.Point(785, 633);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(246, 62);
             this.button3.TabIndex = 3;
@@ -90,7 +90,7 @@ namespace Assignment5
             // numericUpDown1
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown1.Location = new System.Drawing.Point(1006, 36);
+            this.numericUpDown1.Location = new System.Drawing.Point(16, 598);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             660,
             0,
@@ -109,7 +109,7 @@ namespace Assignment5
             // numericUpDown2
             // 
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown2.Location = new System.Drawing.Point(1006, 95);
+            this.numericUpDown2.Location = new System.Drawing.Point(274, 598);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             660,
             0,
@@ -128,7 +128,7 @@ namespace Assignment5
             // numericUpDown3
             // 
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown3.Location = new System.Drawing.Point(1006, 154);
+            this.numericUpDown3.Location = new System.Drawing.Point(533, 598);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             10,
             0,
@@ -153,7 +153,7 @@ namespace Assignment5
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(1006, 9);
+            this.label1.Location = new System.Drawing.Point(12, 571);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(203, 24);
             this.label1.TabIndex = 7;
@@ -163,7 +163,7 @@ namespace Assignment5
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1002, 68);
+            this.label2.Location = new System.Drawing.Point(270, 571);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(202, 24);
             this.label2.TabIndex = 8;
@@ -173,7 +173,7 @@ namespace Assignment5
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(1006, 127);
+            this.label3.Location = new System.Drawing.Point(529, 571);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 24);
             this.label3.TabIndex = 9;
@@ -182,7 +182,7 @@ namespace Assignment5
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(1006, 189);
+            this.button4.Location = new System.Drawing.Point(16, 633);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(246, 62);
             this.button4.TabIndex = 7;
@@ -190,11 +190,11 @@ namespace Assignment5
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // Form1
+            // DiamondSquare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1243, 701);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -206,7 +206,7 @@ namespace Assignment5
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "DiamondSquare";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.DiamondSquare_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

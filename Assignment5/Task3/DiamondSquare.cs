@@ -214,8 +214,8 @@ namespace Assignment5
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int h1 = pictureBox1.Height - rand.Next(0, pictureBox1.Height);
-            int h2 = pictureBox1.Height - rand.Next(0, pictureBox1.Height);
+            int h1 = pictureBox1.Height - rand.Next(0, pictureBox1.Height/2);
+            int h2 = pictureBox1.Height - rand.Next(0, pictureBox1.Height/2);
 
             p1 = new PointF(0, h1);
             p2 = new PointF(pictureBox1.Width, h2);
