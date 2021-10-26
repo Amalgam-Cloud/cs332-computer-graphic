@@ -10,3 +10,15 @@ C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment5\
 C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.pdb
 C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.Form2.resources
 C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.DiamondSquare.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\bin\Debug\Assignment5.exe.config
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\bin\Debug\Assignment5.exe
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\bin\Debug\Assignment5.pdb
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Task3.csproj.AssemblyReference.cache
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.DiamondSquare.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.Form1.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.Form2.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.Properties.Resources.resources
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Task3.csproj.GenerateResource.cache
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Task3.csproj.CoreCompileInputs.cache
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.exe
+C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment5\Task3\obj\Debug\Assignment5.pdb

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Assignment5
 {
@@ -16,8 +17,10 @@ namespace Assignment5
     }
     class Dot:Primal
     {
-        public Point Pos;
-        public bool Visibility;
+        public Point Pos { get; set; }
+        public bool Visibility { get; set; }
+        public Dot buddy { get; set; }
+        public Dot suprim { get; set; }
         public Dot(Point dot, bool Vis = true)
         {
             this.Pos = dot;
@@ -27,6 +30,7 @@ namespace Assignment5
         {
             this.Pos = new Point(0,0);
             this.Visibility = true;
+            this.buddy = null;
         }
         public override void Draw(Graphics g, Pen p, Bitmap b = null)
         {
@@ -43,8 +47,20 @@ namespace Assignment5
                 Brush br = new SolidBrush(p.Color);
                 g.FillRectangle(br, this.Pos.X - 3, this.Pos.Y - 3, 3, 3);
             }
+            if(this.suprim != null)
+            {
+                p.Width = 1;
+                g.DrawLine(p, this.Pos, this.buddy.Pos);
+            }
         }
-
+        public static Dot operator+(Dot d1, Dot d2)
+        {
+            return new Dot(new Point(d1.Pos.X + d2.Pos.X, d1.Pos.Y + d2.Pos.Y));
+        }
+        public static Dot operator-(Dot d1, Dot d2)
+        {
+            return new Dot(new Point(d1.Pos.X - d2.Pos.X, d1.Pos.Y - d2.Pos.Y));
+        }
     }
     class Line:Primal
     {
@@ -100,7 +116,6 @@ namespace Assignment5
             this.pos1 = d1;
             this.pos2 = d2;
         }
-
         public override void Draw(Graphics g,Pen p, Bitmap b = null)
         {
             g.DrawLine(p,pos1.Pos,pos2.Pos);
@@ -203,13 +218,13 @@ namespace Assignment5
                     mult[i].X += v[j].Pos.X * m[j, i];
                 }
             }
-            for (float T = 0; T <= 1; T += (float)(Math.Abs((1.0 / (float)(p1.Pos.X - p0.Pos.X)*0.001))))
+            for (float T = 0; T <= 1; T += /*(float)(Math.Abs((1.0 / (float)(p3.Pos.X - p0.Pos.X)**/(float)0.0001)
             {
                 PointF res = new PointF(0, 0);
                 t[0] = 1;
                 t[1] = T;
                 t[2] = T * T;
-                t[3] = T * T * T;
+                t[3] = t[2] * T;
                 for (int i = 0; i < 4; ++i)
                 {
                     res.X += mult[i].X * t[i];
@@ -219,8 +234,7 @@ namespace Assignment5
             }
             return b;
         }
-
-        public Bitmap DrawBit(Graphics g, Pen p, Bitmap b)
+        public Bitmap DrawBit(Graphics g, Pen p, Bitmap b, ListBox lb, List<Primal> lst)
         {
             g = Graphics.FromImage(b);
             Dot start = null;
@@ -229,36 +243,30 @@ namespace Assignment5
             {
                 dot.Draw(g,p);
             }
-            if (this.dots.Count >= 2)
+            if (this.dots.Count >= 4)
             {
-                //Линия
-                if (this.dots.Count == 2)
-                {
-                    Pen pp = new Pen(this.palet[rnd.Next(this.palet.Count)]);
-                    g.DrawLine(pp, this.dots[0].Pos, this.dots[1].Pos);
-                }
                 //Сплайн
+                start = this.dots[0];
+                for (int i = 3; i <= this.dots.Count - 3; i += 3)
+                {
+                    //end = new Dot(new Point((this.dots[i + 2].Pos.X + this.dots[i + 3].Pos.X) / 2, (this.dots[i + 2].Pos.Y + this.dots[i + 3].Pos.Y) / 2));
+                    b = SplineDraw(this.dots[i - 3], this.dots[i-1], this.dots[i + 1], this.dots[i], this.palet[rnd.Next(this.palet.Count)], b);
+                    //start = end;
+                }
+                /*if (this.dots.Count % 2 == 0)
+                {
+                    b = SplineDraw(start, this.dots[this.dots.Count - 3], this.dots[this.dots.Count - 2], this.dots[this.dots.Count - 1], this.palet[rnd.Next(this.palet.Count)], b);
+                }
                 else
                 {
-                    start = this.dots[0];
-                    for (int i = 0; i < this.dots.Count - 4; i += 2)
-                    {
-                        end = new Dot(new Point((this.dots[i + 2].Pos.X + this.dots[i + 3].Pos.X) / 2, (this.dots[i + 2].Pos.Y + this.dots[i + 3].Pos.Y) / 2));
-                        b = SplineDraw(start, this.dots[i + 1], this.dots[i + 2], end, this.palet[rnd.Next(this.palet.Count)],b);
-                        start = end;
-                    }
-                    if (this.dots.Count % 2 == 0)
-                    {
-                        b = SplineDraw(start, this.dots[this.dots.Count - 3], this.dots[this.dots.Count - 2], this.dots[this.dots.Count - 1], this.palet[rnd.Next(this.palet.Count)], b);
-                    }
-                    else
-                    {
-                        //Разбиение средней точки для кубической кривой
-                        Dot p1 = new Dot(new Point(start.Pos.X + (this.dots[this.dots.Count - 2].Pos.X - start.Pos.X) / 2,start.Pos.Y + (this.dots[this.dots.Count - 2].Pos.Y - start.Pos.Y) / 2));
-                        Dot p2 = new Dot(new Point(this.dots[this.dots.Count - 2].Pos.X + (this.dots[this.dots.Count - 1].Pos.X - this.dots[this.dots.Count - 2].Pos.X) / 2,this.dots[this.dots.Count - 2].Pos.Y + (this.dots[this.dots.Count - 1].Pos.Y - this.dots[this.dots.Count - 2].Pos.Y) / 2));
-                        b = SplineDraw(start, p1, p2, this.dots[this.dots.Count - 1], this.palet[rnd.Next(this.palet.Count)], b);
-                    }
-                }
+                    //Разбиение средней точки для кубической кривой
+                    Dot p1 = new Dot(new Point(start.Pos.X + (this.dots[this.dots.Count - 2].Pos.X - start.Pos.X) / 2, start.Pos.Y + (this.dots[this.dots.Count - 2].Pos.Y - start.Pos.Y) / 2));
+                    Dot p2 = new Dot(new Point(this.dots[this.dots.Count - 2].Pos.X + (this.dots[this.dots.Count - 1].Pos.X - this.dots[this.dots.Count - 2].Pos.X) / 2, this.dots[this.dots.Count - 2].Pos.Y + (this.dots[this.dots.Count - 1].Pos.Y - this.dots[this.dots.Count - 2].Pos.Y) / 2));
+                    //lst.Insert();
+
+                    b = SplineDraw(start, p1, p2, this.dots[this.dots.Count - 1], this.palet[rnd.Next(this.palet.Count)], b);
+                }*/
+
             }
             return b;
 
