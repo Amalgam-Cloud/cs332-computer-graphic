@@ -218,7 +218,7 @@ namespace Assignment5
                     mult[i].X += v[j].Pos.X * m[j, i];
                 }
             }
-            for (float T = 0; T <= 1; T += /*(float)(Math.Abs((1.0 / (float)(p3.Pos.X - p0.Pos.X)**/(float)0.0001)
+            for (float T = 0; T <= 1; T += (float)0.0001)
             {
                 PointF res = new PointF(0, 0);
                 t[0] = 1;
@@ -249,23 +249,8 @@ namespace Assignment5
                 start = this.dots[0];
                 for (int i = 3; i <= this.dots.Count - 3; i += 3)
                 {
-                    //end = new Dot(new Point((this.dots[i + 2].Pos.X + this.dots[i + 3].Pos.X) / 2, (this.dots[i + 2].Pos.Y + this.dots[i + 3].Pos.Y) / 2));
                     b = SplineDraw(this.dots[i - 3], this.dots[i-1], this.dots[i + 1], this.dots[i], this.palet[rnd.Next(this.palet.Count)], b);
-                    //start = end;
                 }
-                /*if (this.dots.Count % 2 == 0)
-                {
-                    b = SplineDraw(start, this.dots[this.dots.Count - 3], this.dots[this.dots.Count - 2], this.dots[this.dots.Count - 1], this.palet[rnd.Next(this.palet.Count)], b);
-                }
-                else
-                {
-                    //Разбиение средней точки для кубической кривой
-                    Dot p1 = new Dot(new Point(start.Pos.X + (this.dots[this.dots.Count - 2].Pos.X - start.Pos.X) / 2, start.Pos.Y + (this.dots[this.dots.Count - 2].Pos.Y - start.Pos.Y) / 2));
-                    Dot p2 = new Dot(new Point(this.dots[this.dots.Count - 2].Pos.X + (this.dots[this.dots.Count - 1].Pos.X - this.dots[this.dots.Count - 2].Pos.X) / 2, this.dots[this.dots.Count - 2].Pos.Y + (this.dots[this.dots.Count - 1].Pos.Y - this.dots[this.dots.Count - 2].Pos.Y) / 2));
-                    //lst.Insert();
-
-                    b = SplineDraw(start, p1, p2, this.dots[this.dots.Count - 1], this.palet[rnd.Next(this.palet.Count)], b);
-                }*/
 
             }
             return b;
