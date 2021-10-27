@@ -28,5 +28,11 @@ namespace Assignment5
             DiamondSquare DS = new DiamondSquare();
             DS.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LSystem LS = new LSystem();
+            LS.Show();
+        }
     }
 }
