@@ -48,23 +48,31 @@ namespace Assignment6
             OX.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height,pictureBox1.Width);
             OY.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
             OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            this.cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.graph.Clear(Color.White);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             switch (comboBox2.SelectedItem.ToString())
             {
                 case "Тетраэдр":
                     this.cur_primal = new Tetradedron(100);
-                    this.cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
                     break;
                 case "Октаэдр":
                     this.cur_primal = new Octaedron(100);
-                    this.cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
                     break;
                 case "Гексэдр":
                     this.cur_primal = new Hexahedron(100);
-                    this.cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
                     break;
 
             }
-
         }
     }
 }
