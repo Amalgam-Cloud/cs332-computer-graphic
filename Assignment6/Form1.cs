@@ -27,6 +27,9 @@ namespace Assignment6
             comboBox2.Items.Add("Тетраэдр");
             comboBox2.Items.Add("Октаэдр");
             comboBox2.Items.Add("Гексэдр");
+            comboBox3.Items.Add("OX");
+            comboBox3.Items.Add("OY");
+            comboBox3.Items.Add("OZ");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,5 +77,7 @@ namespace Assignment6
 
             }
         }
+
+
     }
 }
