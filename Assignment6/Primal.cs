@@ -25,14 +25,20 @@ namespace Assignment6
             return res;
         }
 
+        public virtual void CalcNew(Transformations t)
+        {
+
+        }
+
 
     }
     class Dot : Primal
     {
         string Project { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
+        float[] coords = new float[] { 0, 0, 0, 1 };
+        public float X { get { return coords[0]; } set { coords[0] = value; } }
+        public float Y { get { return coords[1]; } set { coords[1] = value; } }
+        public float Z { get { return coords[2]; } set { coords[2] = value; } }
         public bool Visibility;
         public Dot(Point dot, bool Vis = true)
         {
@@ -41,7 +47,7 @@ namespace Assignment6
             this.Z = 0;
             this.Visibility = Vis;
         }
-        public Dot(int X,int Y, int Z)
+        public Dot(int X, int Y, int Z)
         {
             this.X = X;
             this.Y = Y;
@@ -55,14 +61,14 @@ namespace Assignment6
                 {
                     Brush b = new SolidBrush(p.Color);
                     var n_p = this.AksonometrProject();
-                    g.FillRectangle(b, n_p.X-2, n_p.Y-2, 5, 5);
+                    g.FillRectangle(b, (float)n_p.X-2, (float)n_p.Y-2, 5, 5);
                 }
             }
             else
             {
                 Brush b = new SolidBrush(p.Color);
                 var n_p = this.AksonometrProject();
-                g.FillRectangle(b, n_p.X - 3, n_p.Y - 3, 3, 3);
+                g.FillRectangle(b, (float)n_p.X - 3, (float)n_p.Y - 3, 3, 3);
             }
         }
         public Dot AksonometrProject()
@@ -87,10 +93,22 @@ namespace Assignment6
             return new Dot(new Point(Convert.ToInt32(xx), Convert.ToInt32(yy)));
 
         }
-        public Point GetPoint()
+
+        public void CalcNewDot(Transformations t)
         {
-            return new Point(this.X, this.Y);
+            float[] newCoords = new float[4];
+            for (int i = 0; i < 4; ++i)
+            {
+                newCoords[i] = 0;
+                for (int j = 0; j < 4; ++j)
+                    newCoords[i] += coords[j] * t.Matrix[j, i];
+            }
+            coords = newCoords;
         }
+        //public Point GetPoint()
+        //{
+        //    return new Point(this.X, this.Y);
+        //}
 
     }
     class Line:Primal
@@ -154,7 +172,7 @@ namespace Assignment6
                 n_p1.Y += h / 2;
                 n_p2.X += w / 2;
                 n_p2.Y += h / 2;
-                g.DrawLine(p, new Point(n_p1.X, n_p1.Y), new Point(n_p2.X,n_p2.Y));
+                g.DrawLine(p, new Point(Convert.ToInt32(n_p1.X), Convert.ToInt32(n_p1.Y)), new Point(Convert.ToInt32(n_p2.X) , Convert.ToInt32(n_p2.Y)));
             }
             if (project == "Перспективная")
             {
@@ -164,7 +182,7 @@ namespace Assignment6
                 n_p1.Y += h / 2;
                 n_p2.X += w / 2;
                 n_p2.Y += h / 2;
-                g.DrawLine(p, new Point(n_p1.X, n_p1.Y), new Point(n_p2.X, n_p2.Y));
+                g.DrawLine(p, new Point(Convert.ToInt32(n_p1.X), Convert.ToInt32(n_p1.Y)), new Point(Convert.ToInt32(n_p2.X), Convert.ToInt32(n_p2.Y)));
             }
         }
 
@@ -194,6 +212,7 @@ namespace Assignment6
     }
     class Hexahedron : Primal
     {
+        public Dot[] dots;
         List<Poligon> sides { get; set; }
         public Hexahedron(int size)
         {
@@ -206,6 +225,7 @@ namespace Assignment6
             Dot p6 = new Dot(size, -size, 0);
             Dot p7 = new Dot(size, -size, size);
             Dot p8 = new Dot(0, -size, size);
+            dots = new Dot[] {p1, p2, p3, p4, p5, p6, p7, p8 };
             //Bottom
             var side = new Poligon();
             side.AddLine(new Line(p1, p2));
@@ -265,6 +285,7 @@ namespace Assignment6
         }
         public Hexahedron(Dot p1, Dot p2, Dot p3, Dot p4, Dot p5, Dot p6, Dot p7, Dot p8)
         {
+            dots = new Dot[] { p1, p2, p3, p4, p5, p6, p7, p8 };
             //Bottom
             this.sides = new List<Poligon>();
             var side = new Poligon();
@@ -318,6 +339,13 @@ namespace Assignment6
             }
             return true;
         }
+
+        public override void CalcNew(Transformations t)
+        {
+            foreach (var point in dots)
+                point.CalcNewDot(t);
+        }
+
         public override void Draw(Graphics g, Pen p, string project, int h, int w)
         {
             foreach (Poligon pol in this.sides)
@@ -328,6 +356,7 @@ namespace Assignment6
     }
     class Tetradedron : Primal
     {
+        public Dot[] dots;
         List<Poligon> sides { get; set; }
         public Tetradedron(int size)
         {
@@ -336,6 +365,7 @@ namespace Assignment6
             Dot p2 = new Dot(size, 0, 0);
             Dot p3 = new Dot(0, 0, size);
             Dot p4 = new Dot(size, -size, size);
+            dots = new Dot[] { p1, p2, p3, p4};
             //Bottom
             var side = new Poligon();
             side.AddLine(new Line(p1, p2));
@@ -382,6 +412,13 @@ namespace Assignment6
             }
             return true;
         }
+
+        public override void CalcNew(Transformations t)
+        {
+            foreach (var point in dots)
+                point.CalcNewDot(t);
+        }
+
         public override void Draw(Graphics g, Pen p, string project, int h, int w)
         {
             foreach (Poligon pol in this.sides)
@@ -392,6 +429,7 @@ namespace Assignment6
     }
     class Octaedron : Primal
     {
+        public Dot[] dots;
         List<Poligon> sides { get; set; }
         public Octaedron(int size)
         {
@@ -402,6 +440,7 @@ namespace Assignment6
             Dot p4 = new Dot(size, -size / 2, size / 2);
             Dot p5 = new Dot(size / 2, -size / 2, size);
             Dot p6 = new Dot(size/2, -size, size / 2);
+            dots = new Dot[] { p1, p2, p3, p4, p5, p6 };
             //Bottom_Left
             var side = new Poligon();
             side.AddLine(new Line(p1, p2));
@@ -457,6 +496,7 @@ namespace Assignment6
         }
         public Octaedron(Dot p1, Dot p2, Dot p3, Dot p4, Dot p5, Dot p6)
         {
+            dots = new Dot[] { p1, p2, p3, p4, p5, p6 };
             this.sides = new List<Poligon>();
             //Bottom_Left
             var side = new Poligon();
@@ -528,6 +568,13 @@ namespace Assignment6
             }
             return true;
         }
+
+        public override void CalcNew(Transformations t)
+        {
+            foreach (var point in dots)
+                point.CalcNewDot(t);
+        }
+
         public override void Draw(Graphics g, Pen p, string project, int h, int w)
         {
             foreach (Poligon pol in this.sides)

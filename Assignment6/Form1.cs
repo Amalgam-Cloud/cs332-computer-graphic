@@ -78,6 +78,75 @@ namespace Assignment6
             }
         }
 
+        public void Offset()
+        {
+            float X, Y, Z;
+            try
+            {
+                X = (float)Convert.ToDouble(textBox1.Text);
+                Y = (float)Convert.ToDouble(textBox2.Text);
+                Z = (float)Convert.ToDouble(textBox3.Text);
+            }
+            catch
+            {
+                X = 0;
+                Y = 0;
+                Z = 0;
+            }
+            cur_primal.CalcNew(Transformations.Translate(X, Y, Z));
+        }
 
+        public void Rotate()
+        {
+            float X, Y, Z;
+            try
+            {
+                X = (float)Convert.ToDouble(textBox4.Text);
+                Y = (float)Convert.ToDouble(textBox5.Text);
+                Z = (float)Convert.ToDouble(textBox6.Text);
+            }
+            catch
+            {
+                X = 0;
+                Y = 0;
+                Z = 0;
+            }
+            cur_primal.CalcNew(Transformations.RotateX(X) * Transformations.RotateY(Y) * Transformations.RotateZ(Z));
+        }
+
+        public void Scale()
+        {
+            float X, Y, Z;
+            try
+            {
+                X = (float)Convert.ToDouble(textBox7.Text);
+                Y = (float)Convert.ToDouble(textBox8.Text);
+                Z = (float)Convert.ToDouble(textBox9.Text);
+            }
+            catch
+            {
+                X = 1;
+                Y = 1;
+                Z = 1;
+            }
+            cur_primal.CalcNew(Transformations.Scale(X,Y,Z));
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            button3_Click(sender, e);
+            Offset();
+            Rotate();
+            Scale();
+            Dot center = new Dot(0, 0, 0);
+            Line OX = new Line(center, new Dot(200, 0, 0));
+            Line OY = new Line(center, new Dot(0, -200, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 200));
+            OX.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OY.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+
+        }
     }
 }
