@@ -67,10 +67,10 @@ namespace Assignment7
             double[,] res1 = MatrMult(point1, MatrLibrary.RotateY(-135));
             double[,] res2 = MatrMult(res1, MatrLibrary.RotateX(-65));
             double[,] res3 = MatrMult(res2, MatrLibrary.RotateY(0));
-            var xx = Convert.ToInt32(Math.Round(res3[0, 0]));
-            var yy = Convert.ToInt32(Math.Round(res3[0, 2]));
-            var zz = Convert.ToInt32(Math.Round(res3[0, 1]));
-            return new Dot(new Point(xx,yy));
+            var xx = res3[0, 0];
+            var yy = res3[0, 2];
+            var zz = res3[0, 1];
+            return new Dot(xx,yy,0);
 
         }
         public Dot PerspectiveProject()
@@ -79,10 +79,18 @@ namespace Assignment7
             double[,] res1 = MatrMult(point1, MatrLibrary.PerspectiveProject());
             var xx = (double)this.X / res1[0,3];
             var yy = (double)this.Y / res1[0, 3];
-            //var xx = this.X;
-            //var yy = this.Y;
-            return new Dot(new Point(Convert.ToInt32(xx), Convert.ToInt32(yy)));
+            return new Dot(xx,yy,0);
 
+        }
+        public void Rotate(int angle_X, int angle_Y, int angle_Z)
+        {
+            double[,] point1 = new double[,] { { this.X, this.Y, this.Z, 1.0 } };
+            double[,] res1 = MatrMult(point1, MatrLibrary.RotateX(angle_X));
+            double[,] res2 = MatrMult(res1, MatrLibrary.RotateY(angle_Y));
+            double[,] res3 = MatrMult(res2, MatrLibrary.RotateZ(angle_Z));
+            this.X = res2[0, 0];
+            this.Y = res2[0, 1];
+            this.Z = res2[0, 2];
         }
         public Point GetPoint()
         {
@@ -107,34 +115,45 @@ namespace Assignment7
 
         public override void Draw(Graphics g,Pen p, string project,int h,int w)
         {
+            
             if (project == "Аксонометрическая(Изометрическая)")
             {
                 Dot n_p1 = pos1.AksonometrProject();
                 Dot n_p2 = pos2.AksonometrProject();
+
+                n_p1.X *= w / 2;
+                n_p1.Y *= h / 2;
+                n_p2.X *= w / 2;
+                n_p2.Y *= h / 2;
+
                 n_p1.X += w / 2;
                 n_p1.Y += h / 2 - 2 * (n_p1.Y);
                 n_p2.X += w / 2;
                 n_p2.Y += h / 2 - 2 * (n_p2.Y);
-                g.DrawLine(p, new Point((int)n_p1.X, (int)n_p1.Y), new Point((int)n_p2.X,(int)n_p2.Y));
+                g.DrawLine(p, new Point(Convert.ToInt32(Math.Round(n_p1.X)), Convert.ToInt32(Math.Round(n_p1.Y))), new Point(Convert.ToInt32(Math.Round(n_p2.X)), Convert.ToInt32(Math.Round(n_p2.Y))));
             }
             if (project == "Перспективная")
             {
                 Dot n_p1 = pos1.PerspectiveProject();
                 Dot n_p2 = pos2.PerspectiveProject();
+
+                n_p1.X *= w / 2;
+                n_p1.Y *= h / 2;
+                n_p2.X *= w / 2;
+                n_p2.Y *= h / 2;
+
                 n_p1.X += w / 2;
-                if (n_p1.Y > 0)
-                {
-                    n_p1.Y *= -1;
-                }
-                n_p1.Y += h / 2;
+                n_p1.Y += h / 2 - 2 * (n_p1.Y);
                 n_p2.X += w / 2;
-                if (n_p2.Y > 0)
-                {
-                    n_p2.Y *= -1;
-                }
-                n_p2.Y += h / 2;
-                g.DrawLine(p, new Point((int)n_p1.X, (int)n_p1.Y), new Point((int)n_p2.X, (int)n_p2.Y));
+                n_p2.Y += h / 2 - 2 * (n_p2.Y);
+                g.DrawLine(p, new Point(Convert.ToInt32(Math.Round(n_p1.X)), Convert.ToInt32(Math.Round(n_p1.Y))), new Point(Convert.ToInt32(Math.Round(n_p2.X)), Convert.ToInt32(Math.Round(n_p2.Y))));
             }
+        }
+        public void Rotate(int angle_X, int angle_Y, int angle_Z)
+        {
+            this.pos1.Rotate(angle_X,angle_Y,angle_Z);
+            this.pos2.Rotate(angle_X, angle_Y, angle_Z);
+
         }
 
     }
@@ -195,6 +214,23 @@ namespace Assignment7
                     line.Draw(g, p, project, h, w);
                 }
             }
+            public void Rotate(int angle_X, int angle_Y, int angle_Z)
+            {
+                foreach(Dot d in this.dots)
+                {
+                    d.Rotate(angle_X, angle_Y, angle_Z);
+                }
+            }
+        }
+        public void Refresh()
+        {
+            foreach(var line in this.lines)
+            {
+                foreach(var d in line.dots)
+                {
+                    d.Y = F(d.X, d.Z);
+                }
+            }
         }
         public Graphic_Grid(double x0, double x1, double y0, double y1, double step, string func)
         {
@@ -206,14 +242,13 @@ namespace Assignment7
             this.Y1 = y1;
             this.step = step;
             this.Func = func;
-            dots.Add(new Dot(0, 0, F(0, 0)));
-
             for (double i = this.X0; i < this.X1; i += step)
             {
                 var l = new Graphic_Line();
                 for (double j = this.Y0; j < this.Y1; j += step)
                 {
-                    l.Add_Dot(new Dot(i, F(i, j), j));
+                    if (j > 0.1 && i > 0.1)
+                        l.Add_Dot(new Dot(j, F(i, j), i));
                     
                 }
                 this.lines.Add(l);
@@ -225,6 +260,14 @@ namespace Assignment7
             {
                 line.Draw(g, p, project, h, w);
             }
+        }
+        public void Rotate(int angle_X, int angle_Y, int angle_Z)
+        {
+            foreach (Graphic_Line l in this.lines)
+            {
+                l.Rotate(angle_X, angle_Y, angle_Z);
+            }
+            this.Refresh();
         }
         public void Save()
         {
