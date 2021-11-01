@@ -132,6 +132,33 @@ namespace Assignment6
             cur_primal.CalcNew(Transformations.Scale(X,Y,Z));
         }
 
+        private void Reflect()
+        {
+            switch (comboBox3.SelectedItem.ToString())
+            {
+                case "OX":
+                    {
+                        cur_primal.CalcNew(Transformations.ReflectX());
+                        break;
+                    }
+                case "OY":
+                    {
+                        cur_primal.CalcNew(Transformations.ReflectY());
+                        break;
+                    }
+                case "OZ":
+                    {
+                        cur_primal.CalcNew(Transformations.ReflectZ());
+                        break;
+                    }
+                default:
+                    {
+                        cur_primal.CalcNew(Transformations.ReflectX());
+                        break;
+                    }
+            }
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
             button3_Click(sender, e);
@@ -147,6 +174,37 @@ namespace Assignment6
             OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
             cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            float D;
+            try
+            {
+                D = (float)Convert.ToDouble(numericUpDown1.Value)/10;
+            }
+            catch
+            {
+                D = 0;
+            }
+
+            cur_primal.CalcNew(Transformations.Scale(D, D, D));
+            //Dot center = new Dot(0, 0, 0);
+            
+            cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Reflect();
+            Dot center = new Dot(0, 0, 0);
+            Line OX = new Line(center, new Dot(200, 0, 0));
+            Line OY = new Line(center, new Dot(0, -200, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 200));
+            OX.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OY.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
         }
     }
 }
