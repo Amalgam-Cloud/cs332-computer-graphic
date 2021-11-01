@@ -187,16 +187,50 @@ namespace Assignment6
             {
                 D = 0;
             }
-
+            button3_Click(sender, e);
             cur_primal.CalcNew(Transformations.Scale(D, D, D));
-            //Dot center = new Dot(0, 0, 0);
-            
+            Dot center = new Dot(0, 0, 0);
+            Line OX = new Line(center, new Dot(200, 0, 0));
+            Line OY = new Line(center, new Dot(0, -200, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 200));
+            OX.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OY.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+
             cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            button3_Click(sender, e);
             Reflect();
+            Dot center = new Dot(0, 0, 0);
+            Line OX = new Line(center, new Dot(200, 0, 0));
+            Line OY = new Line(center, new Dot(0, -200, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 200));
+            OX.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OY.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            button3_Click(sender, e);
+            double X, Y, Z;
+            try
+            {
+                X = (float)numericUpDown2.Value / 180 * Math.PI;
+                Y = (float)numericUpDown3.Value / 180 * Math.PI;
+                Z = (float)numericUpDown4.Value / 180 * Math.PI;
+            }
+            catch
+            {
+                X = 0;
+                Y = 0;
+                Z = 0;
+            }
+            cur_primal.CalcNew(Transformations.RotateX(X) * Transformations.RotateY(Y) * Transformations.RotateZ(Z));
             Dot center = new Dot(0, 0, 0);
             Line OX = new Line(center, new Dot(200, 0, 0));
             Line OY = new Line(center, new Dot(0, -200, 0));
