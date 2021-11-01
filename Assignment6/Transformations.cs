@@ -134,26 +134,6 @@ namespace Assignment6
             return Scale(1, 1, -1);
         }
 
-        /*public static Transformations OrthographicXYProjection()
-        {
-            return Identity();
-        }
-
-        public static Transform OrthographicXZProjection()
-        {
-            return Identity() * RotateX(-Math.PI / 2);
-        }
-
-        public static Transform OrthographicYZProjection()
-        {
-            return Identity() * RotateY(Math.PI / 2);
-        }
-
-        public static Transform IsometricProjection()
-        {
-            return Identity() * RotateY(Math.PI / 4) * RotateX(-Math.PI / 4);
-        }*/
-
         public static Transformations PerspectiveProjection()
         {
             return new Transformations(
