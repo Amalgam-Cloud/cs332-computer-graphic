@@ -43,16 +43,16 @@ namespace Assignment7
         {
             this.graph.Clear(Color.White);
             Dot center = new Dot(0,0, 0);
-            Line OX = new Line(center, new Dot(200, 0,0));
-            Line OY = new Line(center, new Dot(0, 200, 0));
-            Line OZ = new Line(center, new Dot(0, 0, 200));
+            Line OX = new Line(center, new Dot(1, 0,0));
+            Line OY = new Line(center, new Dot(0, 1, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 1));
             Pen p1 = new Pen(Color.Red);
             Pen p2 = new Pen(Color.Blue);
             Pen p3 = new Pen(Color.Green);
             OX.Draw(graph, p1, comboBox2.SelectedItem.ToString(), pictureBox1.Height,pictureBox1.Width);
             OY.Draw(graph, p3, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
             OZ.Draw(graph, p2, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
-            this.cur_primal = new Graphic_Grid((double)numericUpDown2.Value*200, (double)numericUpDown1.Value*150, (double)numericUpDown3.Value*150, (double)numericUpDown4.Value*150, (double)numericUpDown5.Value*150, comboBox1.Text);
+            this.cur_primal = new Graphic_Grid((double)numericUpDown2.Value, (double)numericUpDown1.Value, (double)numericUpDown3.Value, (double)numericUpDown4.Value, (double)numericUpDown5.Value, comboBox1.Text);
             this.cur_primal.Draw(this.graph, this.p, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
 
 
@@ -72,9 +72,9 @@ namespace Assignment7
             (this.cur_primal as Graphic_Grid).Load();
             this.graph.Clear(Color.White);
             Dot center = new Dot(0, 0, 0);
-            Line OX = new Line(center, new Dot(200, 0, 0));
-            Line OY = new Line(center, new Dot(0, 200, 0));
-            Line OZ = new Line(center, new Dot(0, 0, 200));
+            Line OX = new Line(center, new Dot(1, 0, 0));
+            Line OY = new Line(center, new Dot(0, 1, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 1));
             Pen p1 = new Pen(Color.Red);
             Pen p2 = new Pen(Color.Blue);
             Pen p3 = new Pen(Color.Green);
@@ -83,6 +83,23 @@ namespace Assignment7
             OZ.Draw(graph, p2, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
             this.cur_primal.Draw(this.graph, this.p, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            (this.cur_primal as Graphic_Grid).Rotate((int)numericUpDown12.Value, (int)numericUpDown15.Value, (int)numericUpDown16.Value);
+            this.graph.Clear(Color.White);
+            Dot center = new Dot(0, 0, 0);
+            Line OX = new Line(center, new Dot(1, 0, 0));
+            Line OY = new Line(center, new Dot(0, 1, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 1));
+            Pen p1 = new Pen(Color.Red);
+            Pen p2 = new Pen(Color.Blue);
+            Pen p3 = new Pen(Color.Green);
+            OX.Draw(graph, p1, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OY.Draw(graph, p3, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OZ.Draw(graph, p2, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            this.cur_primal.Draw(this.graph, this.p, comboBox2.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
         }
     }
 }
