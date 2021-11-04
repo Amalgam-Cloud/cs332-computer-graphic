@@ -8,3 +8,13 @@ C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment7\obj\Debug\Assignme
 C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment7\bin\Debug\Assignment6.exe.config
 C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment7\bin\Debug\Assignment6.exe
 C:\Users\jopap\Desktop\adf\cs332-computer-graphic\Assignment7\bin\Debug\Assignment6.pdb
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\bin\Debug\Assignment6.exe.config
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\bin\Debug\Assignment6.exe
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\bin\Debug\Assignment6.pdb
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\obj\Debug\Assignment7.csproj.AssemblyReference.cache
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\obj\Debug\Assignment7.Form1.resources
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\obj\Debug\Assignment6.Properties.Resources.resources
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\obj\Debug\Assignment7.csproj.GenerateResource.cache
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\obj\Debug\Assignment7.csproj.CoreCompileInputs.cache
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\obj\Debug\Assignment6.exe
+C:\Users\Master\Documents\GitHub\cs332-computer-graphic\Assignment7\obj\Debug\Assignment6.pdb

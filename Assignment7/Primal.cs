@@ -21,6 +21,11 @@ namespace Assignment7
             return res;
         }
 
+        public virtual void CalcNew(Transformations t)
+        {
+
+        }
+
 
     }
     class Dot : Primal
@@ -97,6 +102,12 @@ namespace Assignment7
             return new Point((int)this.X, (int)this.Y);
         }
 
+        public Dot Transform(Transformations t)
+        {
+            var p = new Dot(X, Y, Z);
+            p.Calc(t);
+            return p;
+        }
     }
     class Line:Primal
     {
