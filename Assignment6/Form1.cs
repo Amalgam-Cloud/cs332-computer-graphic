@@ -240,5 +240,31 @@ namespace Assignment6
             OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
             cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            button3_Click(sender, e);
+            int X1 = (int)numericUpDown5.Value;
+            int Y1 = (int)numericUpDown7.Value;
+            int Z1 = (int)numericUpDown9.Value;
+
+            int X2 = (int)numericUpDown6.Value;
+            int Y2 = (int)numericUpDown8.Value;
+            int Z2 = (int)numericUpDown10.Value;
+
+            Line l = new Line(new Dot(X1, Y1, Z1), new Dot(X2, Y2, Z2));
+
+            double ang = (double)numericUpDown11.Value / 180 * Math.PI;
+
+            cur_primal.CalcNew(Transformations.RotateLine(l, ang));
+            Dot center = new Dot(0, 0, 0);
+            Line OX = new Line(center, new Dot(200, 0, 0));
+            Line OY = new Line(center, new Dot(0, -200, 0));
+            Line OZ = new Line(center, new Dot(0, 0, 200));
+            OX.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OY.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+            cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
+        }
     }
 }
