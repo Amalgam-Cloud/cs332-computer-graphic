@@ -12,6 +12,15 @@ namespace Assignment6
 {
     class Primal
     {
+        public virtual Dot[] Points()
+        {
+            Dot[] d = new Dot[] { };
+            return d;
+        }
+        public virtual List<Poligon> Verges()
+        {
+            return new List<Poligon>();
+        }
         public virtual void Draw(Graphics g, Pen p,string Project = " ", int h = 0, int w = 0) { }
         public static double[,] MatrMult(double[,] m1, double[,] m2)
         {
@@ -52,6 +61,12 @@ namespace Assignment6
             this.X = X;
             this.Y = Y;
             this.Z = Z;
+        }
+        public Dot(double X, double Y, double Z)
+        {
+            this.X = (float)X;
+            this.Y = (float)Y;
+            this.Z = (float)Z;
         }
         public override void Draw(Graphics g, Pen p, string Project, int h, int w)
         {
@@ -189,19 +204,32 @@ namespace Assignment6
     }
     class Poligon : Primal
     {
+        public List<Dot> d;
         List<Line> lines;
         public Poligon(List<Line> lines)
         {
             this.lines = lines;
         }
+        public Poligon(List<Dot> dots)
+        {
+            d = dots;
+        }
         public Poligon()
         {
             this.lines = new List<Line>();
+            this.d = new List<Dot>();
         }
         public void AddLine(Line l)
         {
             this.lines.Add(l);
         }
+        public void AddDot(Dot dd)
+        {
+            this.d.Add(dd);
+        }
+
+
+
         public override void Draw(Graphics g, Pen p, string project, int h, int w)
         {
             foreach(Line l in this.lines)
@@ -232,6 +260,10 @@ namespace Assignment6
             side.AddLine(new Line(p2, p3));
             side.AddLine(new Line(p3, p4));
             side.AddLine(new Line(p4, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+            side.AddDot(p3);
+            side.AddDot(p4);
             this.sides.Add(side);
             //Left
             side = new Poligon();
@@ -239,6 +271,12 @@ namespace Assignment6
             side.AddLine(new Line(p5, p8));
             side.AddLine(new Line(p8, p4));
             side.AddLine(new Line(p4, p1));
+            side.AddDot(p1);
+
+            side.AddDot(p4);
+            side.AddDot(p5);
+
+            side.AddDot(p8);
             this.sides.Add(side);
             //Front
             side = new Poligon();
@@ -246,6 +284,12 @@ namespace Assignment6
             side.AddLine(new Line(p2, p6));
             side.AddLine(new Line(p6, p5));
             side.AddLine(new Line(p5, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+
+            side.AddDot(p5);
+            side.AddDot(p6);
+
             this.sides.Add(side);
             //Right
             side = new Poligon();
@@ -253,6 +297,13 @@ namespace Assignment6
             side.AddLine(new Line(p3, p7));
             side.AddLine(new Line(p7, p6));
             side.AddLine(new Line(p6, p2));
+
+            side.AddDot(p2);
+            side.AddDot(p3);
+
+            side.AddDot(p6);
+            side.AddDot(p7);
+
             this.sides.Add(side);
             //Back
             side = new Poligon();
@@ -260,6 +311,12 @@ namespace Assignment6
             side.AddLine(new Line(p4, p8));
             side.AddLine(new Line(p8, p7));
             side.AddLine(new Line(p7, p3));
+
+            side.AddDot(p3);
+            side.AddDot(p4);
+
+            side.AddDot(p7);
+            side.AddDot(p8);
             this.sides.Add(side);
             //Top
             side = new Poligon();
@@ -267,6 +324,11 @@ namespace Assignment6
             side.AddLine(new Line(p6, p7));
             side.AddLine(new Line(p7, p8));
             side.AddLine(new Line(p8, p5));
+
+            side.AddDot(p5);
+            side.AddDot(p6);
+            side.AddDot(p7);
+            side.AddDot(p8);
             this.sides.Add(side);
         }
         public Hexahedron(List<Poligon> sides)
@@ -330,6 +392,54 @@ namespace Assignment6
             side.AddLine(new Line(p8, p5));
             this.sides.Add(side);
         }
+        public Hexahedron(List<Dot> d)
+        {
+            Dot[] dt = d.ToArray();
+            dots = dt;
+            Dot p1 = dt[0], p2 = dt[1], p3 = dt[2], p4 = dt[3], p5 = dt[4], p6 = dt[5], p7 = dt[6], p8 = dt[7];
+            this.sides = new List<Poligon>();
+            var side = new Poligon();
+            side.AddLine(new Line(p1, p2));
+            side.AddLine(new Line(p2, p3));
+            side.AddLine(new Line(p3, p4));
+            side.AddLine(new Line(p4, p1));
+            this.sides.Add(side);
+            //Left
+            side = new Poligon();
+            side.AddLine(new Line(p1, p5));
+            side.AddLine(new Line(p5, p8));
+            side.AddLine(new Line(p1, p4));
+            side.AddLine(new Line(p4, p8));
+            this.sides.Add(side);
+            //Front
+            side = new Poligon();
+            side.AddLine(new Line(p1, p2));
+            side.AddLine(new Line(p2, p6));
+            side.AddLine(new Line(p3, p4));
+            side.AddLine(new Line(p6, p5));
+            this.sides.Add(side);
+            //Right
+            side = new Poligon();
+            side.AddLine(new Line(p2, p3));
+            side.AddLine(new Line(p3, p7));
+            side.AddLine(new Line(p7, p6));
+            side.AddLine(new Line(p6, p2));
+            this.sides.Add(side);
+            //Back
+            side = new Poligon();
+            side.AddLine(new Line(p3, p4));
+            side.AddLine(new Line(p4, p8));
+            side.AddLine(new Line(p8, p7));
+            side.AddLine(new Line(p7, p3));
+            this.sides.Add(side);
+            //Top
+            side = new Poligon();
+            side.AddLine(new Line(p5, p6));
+            side.AddLine(new Line(p6, p7));
+            side.AddLine(new Line(p7, p8));
+            side.AddLine(new Line(p8, p5));
+            this.sides.Add(side);
+        }
         public bool AddSide(Poligon side)
         {
             if(this.sides.Count <= 6)
@@ -338,6 +448,16 @@ namespace Assignment6
                 return false;
             }
             return true;
+        }
+
+        public override Dot[] Points()
+        {
+            return dots;
+        }
+
+        public override List<Poligon> Verges()
+        {
+            return sides;
         }
 
         public override void CalcNew(Transformations t)
@@ -371,24 +491,36 @@ namespace Assignment6
             side.AddLine(new Line(p1, p2));
             side.AddLine(new Line(p2, p3));
             side.AddLine(new Line(p3, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+            side.AddDot(p3);
             this.sides.Add(side);
             //Left
             side = new Poligon();
             side.AddLine(new Line(p1, p2));
             side.AddLine(new Line(p2, p4));
             side.AddLine(new Line(p4, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+            side.AddDot(p4);
             this.sides.Add(side);
             //Back
             side = new Poligon();
             side.AddLine(new Line(p2, p3));
             side.AddLine(new Line(p3, p4));
             side.AddLine(new Line(p4, p2));
+            side.AddDot(p2);
+            side.AddDot(p3);
+            side.AddDot(p4);
             this.sides.Add(side);
             //Right
             side = new Poligon();
             side.AddLine(new Line(p3, p1));
             side.AddLine(new Line(p1, p4));
             side.AddLine(new Line(p4, p3));
+            side.AddDot(p1);
+            side.AddDot(p3);
+            side.AddDot(p4);
             this.sides.Add(side);
         }
         public Tetradedron(List<Poligon> sides)
@@ -411,6 +543,16 @@ namespace Assignment6
                 return false;
             }
             return true;
+        }
+
+        public override Dot[] Points()
+        {
+            return dots;
+        }
+
+        public override List<Poligon> Verges()
+        {
+            return sides;
         }
 
         public override void CalcNew(Transformations t)
@@ -446,48 +588,72 @@ namespace Assignment6
             side.AddLine(new Line(p1, p2));
             side.AddLine(new Line(p2, p5));
             side.AddLine(new Line(p5, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+            side.AddDot(p5);
             this.sides.Add(side);
             //Bottom_Front
             side = new Poligon();
             side.AddLine(new Line(p1, p2));
             side.AddLine(new Line(p2, p3));
             side.AddLine(new Line(p3, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+            side.AddDot(p3);
             this.sides.Add(side);
             //Bottom_Right
             side = new Poligon();
             side.AddLine(new Line(p1, p3));
             side.AddLine(new Line(p3, p4));
             side.AddLine(new Line(p4, p1));
+            side.AddDot(p1);
+            side.AddDot(p3);
+            side.AddDot(p4);
             this.sides.Add(side);
             //Bottom_Back
             side = new Poligon();
             side.AddLine(new Line(p1, p4));
             side.AddLine(new Line(p4, p5));
             side.AddLine(new Line(p5, p1));
+            side.AddDot(p1);
+            side.AddDot(p4);
+            side.AddDot(p5);
             this.sides.Add(side);
             //Top_Left
             side = new Poligon();
             side.AddLine(new Line(p2, p5));
             side.AddLine(new Line(p5, p6));
             side.AddLine(new Line(p6, p2));
+            side.AddDot(p2);
+            side.AddDot(p5);
+            side.AddDot(p6);
             this.sides.Add(side);
             //Top_Front
             side = new Poligon();
             side.AddLine(new Line(p2, p3));
             side.AddLine(new Line(p3, p6));
             side.AddLine(new Line(p6, p2));
+            side.AddDot(p2);
+            side.AddDot(p3);
+            side.AddDot(p6);
             this.sides.Add(side);
             //Top_Right
             side = new Poligon();
             side.AddLine(new Line(p3, p4));
             side.AddLine(new Line(p4, p6));
             side.AddLine(new Line(p6, p3));
+            side.AddDot(p3);
+            side.AddDot(p4);
+            side.AddDot(p6);
             this.sides.Add(side);
             //Top_Back
             side = new Poligon();
             side.AddLine(new Line(p4, p5));
             side.AddLine(new Line(p5, p6));
             side.AddLine(new Line(p6, p4));
+            side.AddDot(p4);
+            side.AddDot(p5);
+            side.AddDot(p6);
             this.sides.Add(side);
         }
         public Octaedron(List<Poligon> sides)
@@ -567,6 +733,16 @@ namespace Assignment6
                 return false;
             }
             return true;
+        }
+
+        public override Dot[] Points()
+        {
+            return dots;
+        }
+
+        public override List<Poligon> Verges()
+        {
+            return sides;
         }
 
         public override void CalcNew(Transformations t)

@@ -266,5 +266,56 @@ namespace Assignment6
             OZ.Draw(graph, p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
             cur_primal.Draw(this.graph, this.p, comboBox1.SelectedItem.ToString(), pictureBox1.Height, pictureBox1.Width);
         }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "Object Files(*.obj)| *.obj | Text files(*.txt) | *.txt | All files(*.*) | *.* ";
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string info = "";
+                    info += cur_primal.ToString() + "\r\n";
+
+                    Dot[] ps = cur_primal.Points();
+                    List<Poligon> vs = cur_primal.Verges();
+
+
+                    foreach (Dot d in ps)
+                    {
+                        info += "\r\n";
+                        info += d.X + " ";
+                        info += d.Y + " ";
+                        info += d.Z;
+                    }
+                    info += "\r\n";
+
+                    foreach (Poligon p in vs)
+                    {
+                        info += "\r\n";
+                        for (int i = 0; i < p.d.Count; ++i)
+                        {
+                            info += p.d[i].X + " " + p.d[i].Y + " " + p.d[i].Z;
+                            info += "\r\n";
+                        }
+
+                    }
+                    
+                    System.IO.File.WriteAllText(saveDialog.FileName, info);
+                }
+                catch
+                {
+                    DialogResult rezult = MessageBox.Show("Невозможно сохранить файл",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
