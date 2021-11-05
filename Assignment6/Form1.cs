@@ -315,6 +315,101 @@ namespace Assignment6
         private void button10_Click(object sender, EventArgs e)
         {
 
+            OpenFileDialog loadDialog = new OpenFileDialog();
+            loadDialog.Filter = "Object Files(*.obj)|*.obj|Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (loadDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    button3_Click(sender, e);
+                    Dot[] ps1 = new Dot[8];
+                    Dot[] ps2 = new Dot[4];
+                    Dot[] ps3 = new Dot[6];
+                    List<Poligon> verges = new List<Poligon>();
+
+                    string str = System.IO.File.ReadAllText(loadDialog.FileName).Replace("\r\n", "!");
+                    string[] info = str.Split('!');
+
+                    string type = info[0].Replace("Assignment6.", "");
+                    
+                    if (type == "Hexahedron")
+                    {
+                        int i = 2; 
+                        while (i < 10)
+                        {
+                            Console.WriteLine(info[i]);
+                            string[] coordinates = info[i].Split(' ');
+
+                            float x = (float)double.Parse(coordinates[0]);
+                            float y = (float)double.Parse(coordinates[1]);
+                            float z = (float)double.Parse(coordinates[2]);
+                            ps1[i-2]= new Dot(x, y, z);
+                            ++i;
+                        }
+                        type = "Гексэдр";
+                    }
+                    if(type == "Tetradedron")
+                    {
+                        int i = 2;
+                        while (i < 6)
+                        {
+                            Console.WriteLine(info[i]);
+                            string[] coordinates = info[i].Split(' ');
+
+                            float x = (float)double.Parse(coordinates[0]);
+                            float y = (float)double.Parse(coordinates[1]);
+                            float z = (float)double.Parse(coordinates[2]);
+                            ps2[i - 2] = new Dot(x, y, z);
+                            ++i;
+                        }
+                        type = "Тетраэдр";
+                    }
+                    if (type == "Octaedron")
+                    {
+                        int i = 2;
+                        while (i < 8)
+                        {
+                            Console.WriteLine(info[i]);
+                            string[] coordinates = info[i].Split(' ');
+
+                            float x = (float)double.Parse(coordinates[0]);
+                            float y = (float)double.Parse(coordinates[1]);
+                            float z = (float)double.Parse(coordinates[2]);
+                            ps3[i - 2] = new Dot(x, y, z);
+                            ++i;
+                        }
+                        type = "Октаэдр";
+                    }
+                   
+                    if (type == "Гексэдр")
+                    {
+                        cur_primal = new Hexahedron(ps1[0], ps1[1], ps1[2], ps1[3], ps1[4], ps1[5], ps1[6], ps1[7]);
+                    }
+                    if (type == "Тетраэдр")
+                    {
+                        cur_primal = new Tetradedron(ps2[0], ps2[1], ps2[2], ps2[3]);
+                    }
+                    if (type == "Октаэдр")
+                    {
+                        cur_primal = new Octaedron(ps3[0], ps3[1], ps3[2], ps3[3], ps3[4], ps3[5]);
+                    }
+                    Dot center = new Dot(0, 0, 0);
+                    Line OX = new Line(center, new Dot(200, 0, 0));
+                    Line OY = new Line(center, new Dot(0, -200, 0));
+                    Line OZ = new Line(center, new Dot(0, 0, 200));
+                    OX.Draw(graph, p, "Аксонометрическая(Изометрическая)", pictureBox1.Height, pictureBox1.Width);
+                    OY.Draw(graph, p, "Аксонометрическая(Изометрическая)", pictureBox1.Height, pictureBox1.Width);
+                    OZ.Draw(graph, p, "Аксонометрическая(Изометрическая)", pictureBox1.Height, pictureBox1.Width);
+                    cur_primal.Draw(this.graph, this.p, "Аксонометрическая(Изометрическая)", pictureBox1.Height, pictureBox1.Width);
+                    
+                }
+                catch
+                {
+                    DialogResult rezult = MessageBox.Show("Невозможно открыть выбранный файл",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
     }

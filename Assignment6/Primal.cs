@@ -523,6 +523,49 @@ namespace Assignment6
             side.AddDot(p4);
             this.sides.Add(side);
         }
+
+        public Tetradedron(Dot p1, Dot p2, Dot p3, Dot p4)
+        {
+            this.sides = new List<Poligon>();
+            dots = new Dot[] { p1, p2, p3, p4 };
+            //Bottom
+            var side = new Poligon();
+            side.AddLine(new Line(p1, p2));
+            side.AddLine(new Line(p2, p3));
+            side.AddLine(new Line(p3, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+            side.AddDot(p3);
+            this.sides.Add(side);
+            //Left
+            side = new Poligon();
+            side.AddLine(new Line(p1, p2));
+            side.AddLine(new Line(p2, p4));
+            side.AddLine(new Line(p4, p1));
+            side.AddDot(p1);
+            side.AddDot(p2);
+            side.AddDot(p4);
+            this.sides.Add(side);
+            //Back
+            side = new Poligon();
+            side.AddLine(new Line(p2, p3));
+            side.AddLine(new Line(p3, p4));
+            side.AddLine(new Line(p4, p2));
+            side.AddDot(p2);
+            side.AddDot(p3);
+            side.AddDot(p4);
+            this.sides.Add(side);
+            //Right
+            side = new Poligon();
+            side.AddLine(new Line(p3, p1));
+            side.AddLine(new Line(p1, p4));
+            side.AddLine(new Line(p4, p3));
+            side.AddDot(p1);
+            side.AddDot(p3);
+            side.AddDot(p4);
+            this.sides.Add(side);
+        }
+
         public Tetradedron(List<Poligon> sides)
         {
             this.sides = sides;
