@@ -28,3 +28,13 @@ C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\A
 C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.CoreCompileInputs.cache
 C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.exe
 C:\Users\georgrigzzz\Source\Repos\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.pdb
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.exe.config
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.exe
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\bin\Debug\Assignment4.pdb
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.AssemblyReference.cache
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.Form1.resources
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.Properties.Resources.resources
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.GenerateResource.cache
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.csproj.CoreCompileInputs.cache
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.exe
+C:\Users\gz\OneDrive\Рабочий стол\cs332-computer-graphic\Assignment4\obj\Debug\Assignment4.pdb

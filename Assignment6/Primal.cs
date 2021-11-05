@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -47,12 +46,19 @@ namespace Assignment6
             this.Z = 0;
             this.Visibility = Vis;
         }
-        public Dot(int X, int Y, int Z)
+        public Dot(float X, float Y, float Z)
         {
             this.X = X;
             this.Y = Y;
             this.Z = Z;
         }
+
+        private Dot (float[] arr)
+        {
+            coords = arr;
+        }
+
+
         public override void Draw(Graphics g, Pen p, string Project, int h, int w)
         {
             if (!this.Visibility)
@@ -70,6 +76,13 @@ namespace Assignment6
                 var n_p = this.AksonometrProject();
                 g.FillRectangle(b, (float)n_p.X - 3, (float)n_p.Y - 3, 3, 3);
             }
+        }
+
+        public Dot Normalization(int width, int height)
+        {
+            var x = (float)(X / coords[3] + 1) / 2 * width;
+            var y = (float)(-Y / coords[3] + 1) / 2 * height;
+            return new Dot(x, y, Z);
         }
         public Dot AksonometrProject()
         {
@@ -91,7 +104,6 @@ namespace Assignment6
             //var xx = this.X;
             //var yy = this.Y;
             return new Dot(new Point(Convert.ToInt32(xx), Convert.ToInt32(yy)));
-
         }
 
         public void CalcNewDot(Transformations t)
@@ -105,10 +117,10 @@ namespace Assignment6
             }
             coords = newCoords;
         }
-        //public Point GetPoint()
-        //{
-        //    return new Point(this.X, this.Y);
-        //}
+        public static Dot GetPoint(Point p)
+        {
+            return new Dot(p.X,p.Y,0);
+        }
 
     }
     class Line:Primal
@@ -269,6 +281,25 @@ namespace Assignment6
             side.AddLine(new Line(p8, p5));
             this.sides.Add(side);
         }
+
+        public Dot center
+        {
+            get
+            {
+                Dot d = new Dot(0, 0, 0);
+                for (int i = 0; i < 8; i++)
+                {
+                    d.X += dots[i].X;
+                    d.Y += dots[i].Y;
+                    d.Z += dots[i].Z;
+                }
+                d.X /= 8;
+                d.Y /= 8;
+                d.Z /= 8;
+                return d;
+            }
+        }
+
         public Hexahedron(List<Poligon> sides)
         {
             this.sides = sides;
@@ -286,6 +317,8 @@ namespace Assignment6
         public Hexahedron(Dot p1, Dot p2, Dot p3, Dot p4, Dot p5, Dot p6, Dot p7, Dot p8)
         {
             dots = new Dot[] { p1, p2, p3, p4, p5, p6, p7, p8 };
+
+       
             //Bottom
             this.sides = new List<Poligon>();
             var side = new Poligon();
@@ -358,6 +391,25 @@ namespace Assignment6
     {
         public Dot[] dots;
         List<Poligon> sides { get; set; }
+
+        public Dot center
+        {
+            get
+            {
+                Dot d = new Dot(0, 0, 0);
+                for (int i = 0; i < 8; i++)
+                {
+                    d.X += dots[i].X;
+                    d.Y += dots[i].Y;
+                    d.Z += dots[i].Z;
+                }
+                d.X /= 4;
+                d.Y /= 4;
+                d.Z /= 4;
+                return d;
+            }
+        }
+
         public Tetradedron(int size)
         {
             this.sides = new List<Poligon>();
@@ -431,6 +483,23 @@ namespace Assignment6
     {
         public Dot[] dots;
         List<Poligon> sides { get; set; }
+        public Dot center
+        {
+            get
+            {
+                Dot d = new Dot(0, 0, 0);
+                for (int i = 0; i < 8; i++)
+                {
+                    d.X += dots[i].X;
+                    d.Y += dots[i].Y;
+                    d.Z += dots[i].Z;
+                }
+                d.X /= 4;
+                d.Y /= 4;
+                d.Z /= 4;
+                return d;
+            }
+        }
         public Octaedron(int size)
         {
             this.sides = new List<Poligon>();
