@@ -1,4 +1,0 @@
-C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.csprojAssemblyReference.cache
-C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.Properties.Resources.resources
-C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.csproj.GenerateResource.cache
-C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.csproj.CoreCompileInputs.cache
