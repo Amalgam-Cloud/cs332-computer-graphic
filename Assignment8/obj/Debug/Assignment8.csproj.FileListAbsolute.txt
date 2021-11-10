@@ -18,3 +18,13 @@ C:\Users\jopap\Desktop\adf\cs332-computer-graphic\cs332-computer-graphic\Assignm
 C:\Users\jopap\Desktop\adf\cs332-computer-graphic\cs332-computer-graphic\Assignment8\obj\Debug\Assignment8.csproj.CoreCompileInputs.cache
 C:\Users\jopap\Desktop\adf\cs332-computer-graphic\cs332-computer-graphic\Assignment8\obj\Debug\AffineTransformationsIn3D.exe
 C:\Users\jopap\Desktop\adf\cs332-computer-graphic\cs332-computer-graphic\Assignment8\obj\Debug\AffineTransformationsIn3D.pdb
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\bin\Debug\AffineTransformationsIn3D.exe.config
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\bin\Debug\AffineTransformationsIn3D.exe
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\bin\Debug\AffineTransformationsIn3D.pdb
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\obj\Debug\Assignment8.csprojAssemblyReference.cache
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\obj\Debug\Assignment8.Form1.resources
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\obj\Debug\AffineTransformationsIn3D.Properties.Resources.resources
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\obj\Debug\Assignment8.csproj.GenerateResource.cache
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\obj\Debug\Assignment8.csproj.CoreCompileInputs.cache
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\obj\Debug\AffineTransformationsIn3D.exe
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment8\obj\Debug\AffineTransformationsIn3D.pdb
