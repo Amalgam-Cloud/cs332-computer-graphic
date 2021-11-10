@@ -1,4 +1,5 @@
-﻿namespace Assignment8
+﻿
+namespace Assignment8
 {
     partial class Form1
     {
@@ -72,7 +73,7 @@
             0,
             0,
             65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(988, 329);
+            this.numericUpDown1.Location = new System.Drawing.Point(988, 476);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10,
             0,
@@ -100,7 +101,7 @@
             0,
             0,
             65536});
-            this.numericUpDown2.Location = new System.Drawing.Point(1076, 329);
+            this.numericUpDown2.Location = new System.Drawing.Point(1076, 476);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             10,
             0,
@@ -128,7 +129,7 @@
             0,
             0,
             65536});
-            this.numericUpDown3.Location = new System.Drawing.Point(1164, 329);
+            this.numericUpDown3.Location = new System.Drawing.Point(1164, 476);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             10,
             0,
@@ -155,7 +156,7 @@
             0,
             0,
             0});
-            this.numericUpDown4.Location = new System.Drawing.Point(988, 361);
+            this.numericUpDown4.Location = new System.Drawing.Point(988, 508);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             180,
             0,
@@ -177,7 +178,7 @@
             0,
             0,
             0});
-            this.numericUpDown5.Location = new System.Drawing.Point(1076, 361);
+            this.numericUpDown5.Location = new System.Drawing.Point(1076, 508);
             this.numericUpDown5.Maximum = new decimal(new int[] {
             180,
             0,
@@ -199,7 +200,7 @@
             0,
             0,
             0});
-            this.numericUpDown6.Location = new System.Drawing.Point(1164, 361);
+            this.numericUpDown6.Location = new System.Drawing.Point(1164, 508);
             this.numericUpDown6.Maximum = new decimal(new int[] {
             180,
             0,
@@ -222,7 +223,7 @@
             0,
             0,
             131072});
-            this.numericUpDown7.Location = new System.Drawing.Point(988, 393);
+            this.numericUpDown7.Location = new System.Drawing.Point(988, 540);
             this.numericUpDown7.Maximum = new decimal(new int[] {
             10,
             0,
@@ -245,7 +246,7 @@
             0,
             0,
             131072});
-            this.numericUpDown8.Location = new System.Drawing.Point(1076, 393);
+            this.numericUpDown8.Location = new System.Drawing.Point(1076, 540);
             this.numericUpDown8.Maximum = new decimal(new int[] {
             10,
             0,
@@ -268,7 +269,7 @@
             0,
             0,
             131072});
-            this.numericUpDown9.Location = new System.Drawing.Point(1164, 393);
+            this.numericUpDown9.Location = new System.Drawing.Point(1164, 540);
             this.numericUpDown9.Maximum = new decimal(new int[] {
             10,
             0,
@@ -285,7 +286,7 @@
             // 
             // ApplyAffin
             // 
-            this.ApplyAffin.Location = new System.Drawing.Point(988, 425);
+            this.ApplyAffin.Location = new System.Drawing.Point(988, 572);
             this.ApplyAffin.Name = "ApplyAffin";
             this.ApplyAffin.Size = new System.Drawing.Size(258, 78);
             this.ApplyAffin.TabIndex = 10;
@@ -298,7 +299,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label10.Location = new System.Drawing.Point(930, 400);
+            this.label10.Location = new System.Drawing.Point(932, 547);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 19);
@@ -309,7 +310,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(911, 336);
+            this.label5.Location = new System.Drawing.Point(939, 483);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 19);
@@ -321,7 +322,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label9.Location = new System.Drawing.Point(914, 368);
+            this.label9.Location = new System.Drawing.Point(934, 515);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 19);
@@ -331,7 +332,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1010, 310);
+            this.label1.Location = new System.Drawing.Point(1011, 454);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 19);
             this.label1.TabIndex = 14;
@@ -340,7 +341,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1105, 310);
+            this.label2.Location = new System.Drawing.Point(1103, 454);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 19);
             this.label2.TabIndex = 15;
@@ -349,7 +350,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1186, 310);
+            this.label3.Location = new System.Drawing.Point(1191, 454);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 19);
             this.label3.TabIndex = 16;
@@ -408,7 +409,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label4.Location = new System.Drawing.Point(832, 53);
+            this.label4.Location = new System.Drawing.Point(903, 45);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 19);
@@ -420,7 +421,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label6.Location = new System.Drawing.Point(832, 20);
+            this.label6.Location = new System.Drawing.Point(908, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 19);
@@ -447,7 +448,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(796, 638);
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
             // 
             // Form1
             // 
