@@ -203,6 +203,18 @@ namespace Assignment8
                 OZ.Draw(e.Graphics, camera.TrueProjection(), pictureBox1.Width, pictureBox1.Height, camera.pos, new Pen(Color.Blue,3));
                 current_primitive.Draw(e.Graphics, camera.TrueProjection(), pictureBox1.Width, pictureBox1.Height, camera.pos,new Pen(Color.Black,2));
 
+            if (without_colors)
+                current_primitive.Draw_without_colors(graphics3D);
+            else if (moreThanOneObj)
+            {
+                foreach (var obj in objects)
+                    obj.Draw(graphics3D);
+            }
+            else
+                current_primitive.Draw(graphics3D);
+
+            e.Graphics.DrawImage(graphics3D.ColorBuffer, 0, 0);
+
         }
     }
 }

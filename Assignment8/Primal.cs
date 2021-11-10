@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AffineTransformationsIn3D;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -12,6 +13,7 @@ namespace Assignment8
     {
         public List<Dot> Dots { get; set; }
         public List<Line> Grani { get; set; }
+
 
 
         public Dot Center()
@@ -417,6 +419,59 @@ namespace Assignment8
                 }
             }
             Console.WriteLine();
+        }
+
+        public int[][] GraniNew { get; set; }
+
+        public virtual void Draw_without_colors(Graph3D graphics)
+        {
+
+            //foreach(var vertex in Vertices)
+            //{
+            //    graphics.DrawPoint(vertex, Color.Black);
+            //}
+
+            foreach (var verge in GraniNew)
+            {
+                Dot p1 = Dots[verge[0]];
+                Dot p2 = Dots[verge[1]];
+                Dot p3 = Dots[verge[2]];
+
+                double[,] matrix = new double[2, 3];
+                matrix[0, 0] = p2.X - p1.X;
+                matrix[0, 1] = p2.Y - p1.Y;
+                matrix[0, 2] = p2.Z - p1.Z;
+                matrix[1, 0] = p3.X - p1.X;
+                matrix[1, 1] = p3.Y - p1.Y;
+                matrix[1, 2] = p3.Z - p1.Z;
+
+                double ni = matrix[0, 1] * matrix[1, 2] - matrix[0, 2] * matrix[1, 1];
+                double nj = matrix[0, 2] * matrix[1, 0] - matrix[0, 0] * matrix[1, 2];
+                double nk = matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
+                double d = -(ni * p1.X + nj * p1.Y + nk * p1.Z);
+
+                Dot pp = new Dot(p1.X + ni, p1.Y + nj, p1.Z + nk);
+                double val1 = ni * pp.X + nj * pp.Y + nk * pp.Z + d;
+                double val2 = ni * Center().X + nj * Center().Y + nk * Center().Z + d;
+
+                if (val1 * val2 > 0)
+                {
+                    ni = -ni;
+                    nj = -nj;
+                    nk = -nk;
+                }
+
+                if (ni * (-graphics.CamPosition.X) + nj * (-graphics.CamPosition.Y) + nk * (-graphics.CamPosition.Z) + ni * p1.X + nj * p1.Y + nk * p1.Z < 0)
+                {
+                    graphics.DrawPoint(Dots[verge[0]], Color.Black);
+                    for (int i = 1; i < verge.Length; ++i)
+                    {
+                        graphics.DrawPoint(Dots[verge[i]], Color.Black);
+                        graphics.DrawLine(Dots[verge[i - 1]], Dots[verge[i]]);
+                    }
+                    graphics.DrawLine(Vertices[verge[verge.Length - 1]], Vertices[verge[0]]);
+                }
+            }
         }
     }
 }
