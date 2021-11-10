@@ -35,6 +35,18 @@ namespace Assignment8
         private void ApplyAffin_Click(object sender, EventArgs e)
         {
 
+            if (without_colors)
+                current_primitive.Draw_without_colors(graphics3D);
+            else if (moreThanOneObj)
+            {
+                foreach (var obj in objects)
+                    obj.Draw(graphics3D);
+            }
+            else
+                current_primitive.Draw(graphics3D);
+
+            e.Graphics.DrawImage(graphics3D.ColorBuffer, 0, 0);
+
         }
     }
 }
