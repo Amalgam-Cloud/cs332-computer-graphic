@@ -2,3 +2,13 @@ C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.
 C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.Properties.Resources.resources
 C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.csproj.GenerateResource.cache
 C:\Users\georgrigzzz\source\repos\Assignment8\Assignment8\obj\Debug\Assignment8.csproj.CoreCompileInputs.cache
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\obj\Debug\Assignment8.csprojAssemblyReference.cache
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\obj\Debug\Assignment8.Properties.Resources.resources
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\obj\Debug\Assignment8.csproj.GenerateResource.cache
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\obj\Debug\Assignment8.csproj.CoreCompileInputs.cache
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\bin\Debug\Assignment8.exe.config
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\bin\Debug\Assignment8.exe
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\bin\Debug\Assignment8.pdb
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\obj\Debug\Assignment8.exe
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\obj\Debug\Assignment8.pdb
+C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment8\Assignment8\obj\Debug\Assignment8.Form1.resources

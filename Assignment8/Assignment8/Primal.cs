@@ -88,7 +88,7 @@ namespace Assignment8
                 Vertices[i] *= transformation;
         }
 
-        public virtual void Draw(Graphics3D graphics)
+        public virtual void Draw(Graphic graphics)
         {
 
             Random r = new Random(256);
@@ -110,7 +110,7 @@ namespace Assignment8
             }
         }
 
-        public virtual void DrawWithoutColors(Graphics3D graphics)
+        public virtual void DrawWithoutColors(Graphic graphics)
         {
 
             foreach (var verge in Verges)

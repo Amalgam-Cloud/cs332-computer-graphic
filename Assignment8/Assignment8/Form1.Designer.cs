@@ -448,6 +448,7 @@ namespace Assignment8
             this.pictureBox1.Size = new System.Drawing.Size(796, 638);
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
             // 
             // Form1
             // 
