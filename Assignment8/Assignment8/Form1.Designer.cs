@@ -396,6 +396,7 @@ namespace Assignment8
             this.PrimitiveComboBox.FormattingEnabled = true;
             this.PrimitiveComboBox.Items.AddRange(new object[] {
             "Тетраэдр",
+            "Гексаэдр",
             "(x * x) + (y * y)",
             "| (x * x) - (y * y) | ",
             "x + y"});

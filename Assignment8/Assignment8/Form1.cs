@@ -72,6 +72,11 @@ namespace Assignment8
                         current_primitive = new Tetrahedron(1);
                         break;
                     }
+                case "Гексаэдр":
+                    {
+                        current_primitive = new Hexahedron(1);
+                        break;
+                    }
                 default:
                     {
                         current_primitive = new Tetrahedron(1);
