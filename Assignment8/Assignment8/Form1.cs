@@ -14,7 +14,6 @@ namespace Assignment8
     {
 
         Primal current_primitive;
-        bool without_colors = false;
         private Camera camera;
 
         List<Primal> objects = new List<Primal>();
@@ -120,7 +119,6 @@ namespace Assignment8
         private void ApplyPrimitive_Click(object sender, EventArgs e)
         {
             moreThanOneObj = false;
-            without_colors = false;
             objects.Clear();
             switch (PrimitiveComboBox.SelectedItem.ToString())
             {
@@ -181,7 +179,7 @@ namespace Assignment8
                 return;
 
             var graphics3D = new Graphic(e.Graphics, camera.ViewProjection, pictureBox1.Width, pictureBox1.Height, camera.Position);
-
+            /*
             var x = new Vector(1, 0, 0);
             var y = new Vector(0, 1, 0);
             var z = new Vector(0, 0, 1);
@@ -190,7 +188,7 @@ namespace Assignment8
             graphics3D.DrawLine(new Vector(0, 0, 0), y, new Pen(Color.Green, 2));
             graphics3D.DrawPoint(y, Color.Green);
             graphics3D.DrawLine(new Vector(0, 0, 0), z, new Pen(Color.Blue, 2));
-            graphics3D.DrawPoint(z, Color.Blue);
+            graphics3D.DrawPoint(z, Color.Blue);*/
 
             if (moreThanOneObj)
             {
@@ -213,16 +211,11 @@ namespace Assignment8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double vi = (double)numericUpDown10.Value;
-            double vj = (double)numericUpDown11.Value;
-            double vk = (double)numericUpDown12.Value;
-            without_colors = true;
             pictureBox1.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            without_colors = false;
             moreThanOneObj = true;
             current_primitive = new Hexahedron(1);
             current_primitive.Apply(Transform.Translate(0, 0.20, -0.40));

@@ -91,21 +91,45 @@ namespace Assignment8
         public virtual void Draw(Graphic graphics)
         {
 
-            Random r = new Random(256);
-
             foreach (var verge in Verges)
             {
-                int k = r.Next(0, 256);
-                int k2 = r.Next(0, 256);
-                int k3 = r.Next(0, 256);
+                Vector p1 = Vertices[verge[0]];
+                Vector p2 = Vertices[verge[1]];
+                Vector p3 = Vertices[verge[2]];
 
-                for (int i = 1; i < verge.Length - 1; ++i)
+                double[,] matrix = new double[2, 3];
+                matrix[0, 0] = p2.X - p1.X;
+                matrix[0, 1] = p2.Y - p1.Y;
+                matrix[0, 2] = p2.Z - p1.Z;
+                matrix[1, 0] = p3.X - p1.X;
+                matrix[1, 1] = p3.Y - p1.Y;
+                matrix[1, 2] = p3.Z - p1.Z;
+
+                double ni = matrix[0, 1] * matrix[1, 2] - matrix[0, 2] * matrix[1, 1];
+                double nj = matrix[0, 2] * matrix[1, 0] - matrix[0, 0] * matrix[1, 2];
+                double nk = matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
+                double d = -(ni * p1.X + nj * p1.Y + nk * p1.Z);
+
+                Vector pp = new Vector(p1.X + ni, p1.Y + nj, p1.Z + nk);
+                double val1 = ni * pp.X + nj * pp.Y + nk * pp.Z + d;
+                double val2 = ni * Center.X + nj * Center.Y + nk * Center.Z + d;
+
+                if (val1 * val2 > 0)
                 {
+                    ni = -ni;
+                    nj = -nj;
+                    nk = -nk;
+                }
 
-                    var a = new Nodes(Vertices[verge[0]], new Vector(), Color.FromArgb(k2, k, k3));
-                    var b = new Nodes(Vertices[verge[i]], new Vector(), Color.FromArgb(k2, k, k3));
-                    var c = new Nodes(Vertices[verge[i + 1]], new Vector(), Color.FromArgb(k2, k, k3));
-                    graphics.DrawTriangle(a, b, c);
+                if (ni * (-graphics.CamPosition.X) + nj * (-graphics.CamPosition.Y) + nk * (-graphics.CamPosition.Z) + ni * p1.X + nj * p1.Y + nk * p1.Z < 0)
+                {
+                    graphics.DrawPoint(Vertices[verge[0]], Color.Black);
+                    for (int i = 1; i < verge.Length; ++i)
+                    {
+                        graphics.DrawPoint(Vertices[verge[i]], Color.Black);
+                        graphics.DrawLine(Vertices[verge[i - 1]], Vertices[verge[i]]);
+                    }
+                    graphics.DrawLine(Vertices[verge[verge.Length - 1]], Vertices[verge[0]]);
                 }
             }
         }
