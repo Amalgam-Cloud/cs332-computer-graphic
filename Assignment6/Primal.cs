@@ -229,56 +229,56 @@ namespace Assignment6
         public Hexahedron(int size)
         {
             this.sides = new List<Poligon>();
-            Dot p1 = new Dot(0, 0, 0);
-            Dot p2 = new Dot(size, 0, 0);
-            Dot p3 = new Dot(size, 0, size);
-            Dot p4 = new Dot(0, 0, size);
-            Dot p5 = new Dot(0, -size, 0);
-            Dot p6 = new Dot(size, -size, 0);
-            Dot p7 = new Dot(size, -size, size);
-            Dot p8 = new Dot(0, -size, size);
+            Dot p1 = new Dot(size/2, size/2, size/2);
+            Dot p2 = new Dot(size/2, size/2, -size/2);
+            Dot p3 = new Dot(-size/2, size / 2, size/2);
+            Dot p4 = new Dot(-size/2, size/2, -size/2);
+            Dot p5 = new Dot(size/2, -size/2, size/2);
+            Dot p6 = new Dot(-size/2, -size/2, size/2);
+            Dot p7 = new Dot(size/2, -size/2, -size/2);
+            Dot p8 = new Dot(-size/2, -size/2, -size/2);
             dots = new Dot[] {p1, p2, p3, p4, p5, p6, p7, p8 };
             //Bottom
             var side = new Poligon();
             side.AddLine(new Line(p1, p2));
-            side.AddLine(new Line(p2, p3));
-            side.AddLine(new Line(p3, p4));
-            side.AddLine(new Line(p4, p1));
+            side.AddLine(new Line(p2, p4));
+            side.AddLine(new Line(p4, p3));
+            side.AddLine(new Line(p3, p1));
             this.sides.Add(side);
             //Left
             side = new Poligon();
-            side.AddLine(new Line(p1, p5));
-            side.AddLine(new Line(p5, p8));
-            side.AddLine(new Line(p8, p4));
-            side.AddLine(new Line(p4, p1));
+            side.AddLine(new Line(p3, p4));
+            side.AddLine(new Line(p4, p8));
+            side.AddLine(new Line(p8, p6));
+            side.AddLine(new Line(p6, p3));
             this.sides.Add(side);
             //Front
             side = new Poligon();
-            side.AddLine(new Line(p1, p2));
-            side.AddLine(new Line(p2, p6));
+            side.AddLine(new Line(p1, p3));
+            side.AddLine(new Line(p3, p6));
             side.AddLine(new Line(p6, p5));
             side.AddLine(new Line(p5, p1));
             this.sides.Add(side);
             //Right
             side = new Poligon();
-            side.AddLine(new Line(p2, p3));
-            side.AddLine(new Line(p3, p7));
-            side.AddLine(new Line(p7, p6));
-            side.AddLine(new Line(p6, p2));
+            side.AddLine(new Line(p1, p2));
+            side.AddLine(new Line(p2, p7));
+            side.AddLine(new Line(p7, p5));
+            side.AddLine(new Line(p5, p1));
             this.sides.Add(side);
             //Back
             side = new Poligon();
-            side.AddLine(new Line(p3, p4));
+            side.AddLine(new Line(p2, p4));
             side.AddLine(new Line(p4, p8));
             side.AddLine(new Line(p8, p7));
-            side.AddLine(new Line(p7, p3));
+            side.AddLine(new Line(p7, p2));
             this.sides.Add(side);
             //Top
             side = new Poligon();
             side.AddLine(new Line(p5, p6));
-            side.AddLine(new Line(p6, p7));
-            side.AddLine(new Line(p7, p8));
-            side.AddLine(new Line(p8, p5));
+            side.AddLine(new Line(p6, p8));
+            side.AddLine(new Line(p8, p7));
+            side.AddLine(new Line(p7, p5));
             this.sides.Add(side);
         }
 
@@ -416,7 +416,7 @@ namespace Assignment6
             Dot p1 = new Dot(0, -size, 0);
             Dot p2 = new Dot(size, 0, 0);
             Dot p3 = new Dot(0, 0, size);
-            Dot p4 = new Dot(size, -size, size);
+            Dot p4 = new Dot(size, size, size);
             dots = new Dot[] { p1, p2, p3, p4};
             //Bottom
             var side = new Poligon();

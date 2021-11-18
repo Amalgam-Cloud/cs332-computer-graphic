@@ -28,3 +28,13 @@ C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Ass
 C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.csproj.CoreCompileInputs.cache
 C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.exe
 C:\Users\vanya\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.pdb
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.csprojAssemblyReference.cache
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.Form1.resources
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.Properties.Resources.resources
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.csproj.GenerateResource.cache
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.csproj.CoreCompileInputs.cache
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.exe
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\obj\Debug\Assignment6.pdb
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\bin\Debug\Assignment6.exe.config
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\bin\Debug\Assignment6.exe
+C:\Users\georgrigzzz\Documents\GitHub\cs332-computer-graphic\Assignment6\bin\Debug\Assignment6.pdb
