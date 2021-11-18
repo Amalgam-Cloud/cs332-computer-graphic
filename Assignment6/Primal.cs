@@ -412,11 +412,12 @@ namespace Assignment6
 
         public Tetradedron(int size)
         {
+            float h = (float)Math.Sqrt(2.0 / 3.0) * size;
             this.sides = new List<Poligon>();
-            Dot p1 = new Dot(0, -size, 0);
-            Dot p2 = new Dot(size, 0, 0);
-            Dot p3 = new Dot(0, 0, size);
-            Dot p4 = new Dot(size, size, size);
+            Dot p1 = new Dot(0, -h*2/3, 0);
+            Dot p2 = new Dot(size / 2, h * 2 / 3, -h / 3);
+            Dot p3 = new Dot(0, h * 2 / 3, h * 2 / 3);
+            Dot p4 = new Dot(-size / 2, h * 2 / 3, -h / 3);
             dots = new Dot[] { p1, p2, p3, p4};
             //Bottom
             var side = new Poligon();
@@ -503,60 +504,60 @@ namespace Assignment6
         public Octaedron(int size)
         {
             this.sides = new List<Poligon>();
-            Dot p1 = new Dot(size/2, 0, size/2);
-            Dot p2 = new Dot(0, -size/2, size / 2);
-            Dot p3 = new Dot(size / 2, -size / 2, 0);
-            Dot p4 = new Dot(size, -size / 2, size / 2);
-            Dot p5 = new Dot(size / 2, -size / 2, size);
-            Dot p6 = new Dot(size/2, -size, size / 2);
+            Dot p1 = new Dot(-size / 2, 0, 0);
+            Dot p2 = new Dot(0, size / 2, 0);
+            Dot p3 = new Dot(0, 0, -size / 2);
+            Dot p4 = new Dot(size/2, 0, 0);
+            Dot p5 = new Dot(0, -size/2, 0);
+            Dot p6 = new Dot(0, 0, size / 2);
             dots = new Dot[] { p1, p2, p3, p4, p5, p6 };
             //Bottom_Left
             var side = new Poligon();
-            side.AddLine(new Line(p1, p2));
-            side.AddLine(new Line(p2, p5));
+            side.AddLine(new Line(p1, p3));
+            side.AddLine(new Line(p3, p5));
             side.AddLine(new Line(p5, p1));
             this.sides.Add(side);
             //Bottom_Front
             side = new Poligon();
-            side.AddLine(new Line(p1, p2));
-            side.AddLine(new Line(p2, p3));
-            side.AddLine(new Line(p3, p1));
+            side.AddLine(new Line(p3, p5));
+            side.AddLine(new Line(p5, p4));
+            side.AddLine(new Line(p4, p3));
             this.sides.Add(side);
             //Bottom_Right
             side = new Poligon();
-            side.AddLine(new Line(p1, p3));
-            side.AddLine(new Line(p3, p4));
-            side.AddLine(new Line(p4, p1));
+            side.AddLine(new Line(p5, p6));
+            side.AddLine(new Line(p6, p4));
+            side.AddLine(new Line(p4, p5));
             this.sides.Add(side);
             //Bottom_Back
             side = new Poligon();
-            side.AddLine(new Line(p1, p4));
-            side.AddLine(new Line(p4, p5));
+            side.AddLine(new Line(p1, p6));
+            side.AddLine(new Line(p6, p5));
             side.AddLine(new Line(p5, p1));
             this.sides.Add(side);
             //Top_Left
             side = new Poligon();
-            side.AddLine(new Line(p2, p5));
-            side.AddLine(new Line(p5, p6));
+            side.AddLine(new Line(p1, p6));
             side.AddLine(new Line(p6, p2));
+            side.AddLine(new Line(p2, p1));
             this.sides.Add(side);
             //Top_Front
             side = new Poligon();
-            side.AddLine(new Line(p2, p3));
-            side.AddLine(new Line(p3, p6));
-            side.AddLine(new Line(p6, p2));
+            side.AddLine(new Line(p6, p4));
+            side.AddLine(new Line(p4, p2));
+            side.AddLine(new Line(p2, p6));
             this.sides.Add(side);
             //Top_Right
             side = new Poligon();
-            side.AddLine(new Line(p3, p4));
-            side.AddLine(new Line(p4, p6));
-            side.AddLine(new Line(p6, p3));
+            side.AddLine(new Line(p1, p3));
+            side.AddLine(new Line(p3, p2));
+            side.AddLine(new Line(p2, p1));
             this.sides.Add(side);
             //Top_Back
             side = new Poligon();
-            side.AddLine(new Line(p4, p5));
-            side.AddLine(new Line(p5, p6));
-            side.AddLine(new Line(p6, p4));
+            side.AddLine(new Line(p3, p2));
+            side.AddLine(new Line(p2, p4));
+            side.AddLine(new Line(p4, p3));
             this.sides.Add(side);
         }
         public Octaedron(List<Poligon> sides)
