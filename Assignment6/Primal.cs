@@ -414,10 +414,10 @@ namespace Assignment6
         {
             float h = (float)Math.Sqrt(2.0 / 3.0) * size;
             this.sides = new List<Poligon>();
-            Dot p1 = new Dot(0, -h*2/3, 0);
-            Dot p2 = new Dot(size / 2, h * 2 / 3, -h / 3);
-            Dot p3 = new Dot(0, h * 2 / 3, h * 2 / 3);
-            Dot p4 = new Dot(-size / 2, h * 2 / 3, -h / 3);
+            Dot p1 = new Dot(0, -h, 0);
+            Dot p2 = new Dot(size / 2, h * 1/3, -h / 3);
+            Dot p3 = new Dot(0, h * 1 / 3, h );
+            Dot p4 = new Dot(-size / 2, h * 1 / 3, -h / 3);
             dots = new Dot[] { p1, p2, p3, p4};
             //Bottom
             var side = new Poligon();
@@ -505,7 +505,7 @@ namespace Assignment6
         {
             this.sides = new List<Poligon>();
             Dot p1 = new Dot(-size / 2, 0, 0);
-            Dot p2 = new Dot(0, size / 2, 0);
+            Dot p2 = new Dot(0, -size / 2, 0);
             Dot p3 = new Dot(0, 0, -size / 2);
             Dot p4 = new Dot(size/2, 0, 0);
             Dot p5 = new Dot(0, -size/2, 0);
