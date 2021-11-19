@@ -505,7 +505,7 @@ namespace Assignment6
         {
             this.sides = new List<Poligon>();
             Dot p1 = new Dot(-size / 2, 0, 0);
-            Dot p2 = new Dot(0, -size / 2, 0);
+            Dot p2 = new Dot(0, size / 2, 0);
             Dot p3 = new Dot(0, 0, -size / 2);
             Dot p4 = new Dot(size/2, 0, 0);
             Dot p5 = new Dot(0, -size/2, 0);
