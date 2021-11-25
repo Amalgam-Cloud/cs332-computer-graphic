@@ -174,31 +174,31 @@ namespace Assignment8
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            //e.Graphics.Clear(Color.White);
+
             if (current_primitive == null)
                 return;
 
-            var graphics3D = new Graphic(e.Graphics, camera.ViewProjection, pictureBox1.Width, pictureBox1.Height, camera.Position);
-            /*
+            var graphic = new Graphic(e.Graphics, camera.ViewProjection, pictureBox1.Width, pictureBox1.Height, camera.Position);
+            
             var x = new Vector(1, 0, 0);
             var y = new Vector(0, 1, 0);
             var z = new Vector(0, 0, 1);
-            graphics3D.DrawLine(new Vector(0, 0, 0), x, new Pen(Color.Red, 2));
-            graphics3D.DrawPoint(x, Color.Red);
-            graphics3D.DrawLine(new Vector(0, 0, 0), y, new Pen(Color.Green, 2));
-            graphics3D.DrawPoint(y, Color.Green);
-            graphics3D.DrawLine(new Vector(0, 0, 0), z, new Pen(Color.Blue, 2));
-            graphics3D.DrawPoint(z, Color.Blue);*/
+            graphic.DrawLine(new Vector(0, 0, 0), x, new Pen(Color.Red, 2));
+            graphic.DrawPoint(x, Color.Red);
+            graphic.DrawLine(new Vector(0, 0, 0), y, new Pen(Color.Green, 2));
+            graphic.DrawPoint(y, Color.Green);
+            graphic.DrawLine(new Vector(0, 0, 0), z, new Pen(Color.Blue, 2));
+            graphic.DrawPoint(z, Color.Blue);
 
             if (moreThanOneObj)
             {
                 foreach (var obj in objects)
-                    obj.Draw(graphics3D);
+                    obj.Draw(graphic);
             }
             else
-                current_primitive.Draw(graphics3D);
+                current_primitive.DrawNonFace(graphic);
 
-            e.Graphics.DrawImage(graphics3D.ColorBuffer, 0, 0);
+            e.Graphics.DrawImage(graphic.ColorBuffer, 0, 0);
 
         }
 
@@ -207,11 +207,6 @@ namespace Assignment8
             Scale();
             Rotate();
             Translate();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e)

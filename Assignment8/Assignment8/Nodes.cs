@@ -11,13 +11,15 @@ namespace Assignment8
     {
         public Vector Coordinate { get; set; }
         public Vector Normal { get; set; }
+        public Color Color { get; set; }
 
         public Nodes() { }
 
-        public Nodes(Vector coordinate, Vector normal)
+        public Nodes(Vector coordinate, Vector normal, Color color)
         {
             Coordinate = coordinate;
             Normal = normal;
+            Color = color;
         }
     }
 }
