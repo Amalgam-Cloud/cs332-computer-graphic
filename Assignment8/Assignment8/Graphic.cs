@@ -63,7 +63,7 @@ namespace Assignment8
 
         private Nodes SpaceToScreen(Nodes vertex)
         {
-            return new Nodes(SpaceToScreenCoordinate(vertex.Coordinate), vertex.Normal, vertex.Color);
+            return new Nodes(SpaceToScreenCoordinate(vertex.Coordinate), vertex.Normal);
         }
 
         public void DrawLine(Vector a, Vector b)
@@ -104,19 +104,6 @@ namespace Assignment8
             return x0 + (x1 - x0) * f;
         }
 
-        private long Interpolate(long x0, long x1, double f)
-        {
-            return x0 + (long)((x1 - x0) * f);
-        }
-
-        private Color Interpolate(Color a, Color b, double f)
-        {
-            var R = Interpolate(a.R, b.R, f);
-            var G = Interpolate(a.G, b.G, f);
-            var B = Interpolate(a.B, b.B, f);
-            return Color.FromArgb((byte)R, (byte)G, (byte)B);
-        }
-
         private Vector Interpolate(Vector a, Vector b, double f)
         {
             return new Vector(
@@ -129,7 +116,6 @@ namespace Assignment8
         {
             v.Coordinate = Interpolate(a.Coordinate, b.Coordinate, f);
             v.Normal = Interpolate(a.Normal, b.Normal, f);
-            v.Color = Interpolate(a.Color, b.Color, f);
         }
 
         private static void Swap<T>(ref T a, ref T b)
@@ -186,7 +172,7 @@ namespace Assignment8
                     if (point.Coordinate.Z < ZBuffer[(int)x, (int)y])
                     {
                         ZBuffer[(int)x, (int)y] = point.Coordinate.Z;
-                        ColorBuffer.SetPixel((int)x, (int)y, point.Color);
+                        ColorBuffer.SetPixel((int)x, (int)y, Color.Black);
                     }
                 }
             }
