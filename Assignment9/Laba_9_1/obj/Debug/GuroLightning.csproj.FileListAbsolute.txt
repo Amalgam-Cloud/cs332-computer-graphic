@@ -1,0 +1,10 @@
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\bin\Debug\GuroLightning.exe.config
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\bin\Debug\GuroLightning.exe
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\bin\Debug\GuroLightning.pdb
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\obj\Debug\GuroLightning.csproj.AssemblyReference.cache
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\obj\Debug\GuroLightning.Form1.resources
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\obj\Debug\GuroLightning.Properties.Resources.resources
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\obj\Debug\GuroLightning.csproj.GenerateResource.cache
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\obj\Debug\GuroLightning.csproj.CoreCompileInputs.cache
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\obj\Debug\GuroLightning.exe
+C:\Users\vanya\source\repos\Новая папка\computer_graphics-master\lab9\guroLightning\obj\Debug\GuroLightning.pdb
